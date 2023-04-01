@@ -53,7 +53,9 @@
             </el-sub-menu>
             <el-sub-menu index="3">
               <template #title>
-                <!-- <el-icon><icon-menu /></el-icon> -->
+                <el-icon>
+                  <!-- <location /> -->
+                </el-icon>
                 <span>学业谜思</span>
               </template>
               <el-menu-item index="/mainpage/CareerPlanning">规划答疑</el-menu-item>
