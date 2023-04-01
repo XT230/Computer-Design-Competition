@@ -63,7 +63,10 @@
           </el-menu>
         </el-aside>
         <el-main style="overflow:hidden">
-          <router-view></router-view>
+          <div id="main_contain">
+            <router-view></router-view>
+          </div>
+          
         </el-main>
       </el-container>
     </el-container>
@@ -148,4 +151,5 @@ export default defineComponent({
 #down_box {
 height:100%;
 }
+
 </style>

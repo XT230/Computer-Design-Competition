@@ -94,8 +94,8 @@ export default {
     .content
     {
         width: calc(100% - 200px);
-        float: right;
-        height: 100vh;
+        float: left;
+        height: 621px;
         /* display: flex;
         align-items: center;
         justify-content: center; */
