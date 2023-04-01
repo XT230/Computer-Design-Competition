@@ -100,7 +100,6 @@ export default defineComponent({
     router.push('/mainpage/Recomend')
   }
 })
-
 </script>
 
 <style scoped>

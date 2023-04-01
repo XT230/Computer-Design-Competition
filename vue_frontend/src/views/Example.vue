@@ -1,10 +1,10 @@
 <template>
-  <el-row :gutter="2" >
-    <el-col v-for="(o, index) in 5" :key="o" :span="5">
-      <el-card :body-style="{ padding: '3px' }">
+  <el-row :gutter="0" justify='space-between'>
+    <el-col v-for="(o, index) in 8" :key="o" :span="7" >
+      <el-card id="wenzhang">
         <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
           class="image" />
-        <div style="padding: 14px">
+        <div style="padding: 1px">
           <span>Yummy hamburger</span>
           <div class="bottom">
             <time class="time">{{ currentDate }}</time>
@@ -47,4 +47,10 @@ const currentDate = ref(new Date())
   width: 100%;
   display: block;
 }
+#wenzhang{
+  margin-bottom: 20px;
+  height: 300px;
+}
+
+
 </style>

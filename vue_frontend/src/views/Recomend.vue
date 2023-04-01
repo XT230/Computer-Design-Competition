@@ -5,12 +5,12 @@
       <h3 text="2xl" justify="center">{{ item }}</h3>
     </el-carousel-item>
   </el-carousel>
-  <el-row justify="space-evenly">
+  <el-row justify='space-between'>
     <el-col v-for="(o, index) in 5" :key="o" :span="5" >
-      <el-card :body-style="{ padding: '3px' }" >
+      <el-card  id="tuijianwenzhang" >
         <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
           class="image" />
-        <div style="padding: 14px">
+        <div >
           <span>Yummy hamburger</span>
           <div class="bottom">
             <time class="time">{{ currentDate }}</time>
@@ -67,5 +67,10 @@ const currentDate = ref(new Date())
 .image {
   width: 100%;
   display: block;
+}
+
+#tuijianwenzhang{
+  margin-bottom: 20px;
+  height: 90%;
 }
 </style>
