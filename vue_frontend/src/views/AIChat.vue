@@ -23,7 +23,7 @@
     </div>
 </template>
 
-<script lang="js">
+<script>
 import axios from "axios";
 import { reactive, toRefs } from "vue";
 export default {
@@ -43,8 +43,8 @@ export default {
             },
             config: {
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer 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"
+                    ///////
+                    ///////
                 }
             }
         });
