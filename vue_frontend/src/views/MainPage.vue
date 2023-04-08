@@ -59,7 +59,6 @@
                 <span>学业谜思</span>
               </template>
               <el-menu-item index="/mainpage/CareerPlanning">规划答疑</el-menu-item>
-              <el-menu-item index="/mainpage/Chat">聊聊学校</el-menu-item>
             </el-sub-menu>
 
           </el-menu>
@@ -97,7 +96,7 @@ export default defineComponent({
   mounted() {
     this.$refs.menu.open('2');
     this.$refs.menu.open('3');
-    router.push('/mainpage/Recomend')
+    // router.push('/mainpage/Recomend')
   }
 })
 </script>
@@ -126,7 +125,7 @@ export default defineComponent({
 }
 
 .el-main {
-  background-color: #D3DCE6;
+  background-color: #f2f2f2;
   color: #333;
 }
 
