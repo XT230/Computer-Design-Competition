@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-bottom: 10px;">
     <el-button round size="large">初中</el-button>
     <el-button round size="large">高中</el-button>
     <el-button round size="large">大学</el-button>
