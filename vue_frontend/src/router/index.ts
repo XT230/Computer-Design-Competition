@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory  } from 'vue-router'
 import Login from '../views/LoginView.vue';
 import MainPage from '../views/MainPage.vue';
 import AIChat from '../views/AIChat.vue';
@@ -12,7 +12,7 @@ import UserInfo from '../views/UserInfo.vue';
 import Favorites from '../views/Favorites.vue';
 import path from 'path';
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -40,5 +40,6 @@ const router = createRouter({
     
   ]
 })
+
 
 export default router

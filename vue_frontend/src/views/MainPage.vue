@@ -95,8 +95,8 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.$refs.menu.open('2');
-    this.$refs.menu.open('3');
+    // this.$refs.menu.open('2');
+    // this.$refs.menu.open('3');
     router.push('/mainpage/Recomend')
   }
 })

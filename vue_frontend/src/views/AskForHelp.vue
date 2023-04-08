@@ -3,7 +3,7 @@
     <el-col v-for="(o, index) in 11" :key="o" :span="8">
       <el-card shadow="hover">
         <h3>标题🍉</h3>
-        <p>🍉家人们，救命，谁懂啊。前几天我闺蜜把我的用的黄瓜给吃掉了，好下头啊</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sapiente tempora architecto debitis dolores deserunt, numquam tempore nam amet, aliquam recusandae tenetur consectetur. Explicabo autem dignissimos vitae eos architecto nulla!</p>
       </el-card>
     </el-col>
   </el-row>

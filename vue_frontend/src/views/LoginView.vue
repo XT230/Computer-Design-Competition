@@ -56,7 +56,7 @@ export default
                         let user = response.data;
                         if (user != '') {
                             setSessionStorage('user', user);
-                            router.push('/home');
+                            router.push('/Mainpage');
                         }
                         else {
                             alert('账号或密码不正确');
