@@ -45,6 +45,27 @@
             </template>
             {{ userMail }}
         </el-descriptions-item>
+        <el-descriptions-item>
+            <template #label>
+                <div class="cell-item">
+                    <el-icon :style="iconStyle">
+                        <office-building />
+                    </el-icon>
+                    邮箱
+                </div>
+            </template>
+            {{ userMail }}
+        </el-descriptions-item><el-descriptions-item>
+            <template #label>
+                <div class="cell-item">
+                    <el-icon :style="iconStyle">
+                        <office-building />
+                    </el-icon>
+                    学历
+                </div>
+            </template>
+            <el-tag>{{userEdu}}</el-tag>
+        </el-descriptions-item>
     </el-descriptions>
 </template>
 
@@ -69,6 +90,7 @@ export default defineComponent({
             userSchool: "东北大学秦皇岛分校",
             userPhone: "18100000000",
             userMail: "wtf",
+            userEdu: "本科",
             iconStyle: computed(() => {
                 const marginMap = {
                     large: '8px',

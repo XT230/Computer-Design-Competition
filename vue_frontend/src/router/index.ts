@@ -4,12 +4,12 @@ import MainPage from '../views/MainPage.vue';
 import AIChat from '../views/AIChat.vue';
 import AskForHelp from '../views/AskForHelp.vue';
 import CareerPlanning from '../views/CareerPlanning.vue';
-import Chat from '../views/Chat.vue';
 import Example from '../views/Example.vue';
 import PraiseWall from '../views/PraiseWall.vue';
 import Recomend from '../views/Recomend.vue';
 import UserInfo from '../views/UserInfo.vue';
 import Favorites from '../views/Favorites.vue';
+import UserMainPageVue from '@/views/UserMainPage.vue';
 import path from 'path';
 const router = createRouter({
   history: createWebHistory(),
@@ -29,7 +29,7 @@ const router = createRouter({
         { path: 'AIChat', component: AIChat },
         { path: 'AskForHelp', component: AskForHelp },
         { path: 'CareerPlanning', component: CareerPlanning },
-        { path: 'Chat', component: Chat },
+        { path: 'UserMainPage', component: UserMainPageVue },
         { path: 'Example', component: Example },
         { path: 'PraiseWall', component: PraiseWall },
         { path: 'Recomend', component: Recomend },
