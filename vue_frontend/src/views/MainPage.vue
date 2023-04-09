@@ -1,6 +1,6 @@
 <template>
   <div class="common-layout" id="homepage_box">
-    <el-container style="height: 100%;" direction="vertical">
+    <el-container  direction="vertical">
       <el-header>
         <h2 id="website_title">心理健康服务平台</h2>
         <div id="user_info">
@@ -63,7 +63,7 @@
           </el-menu>
         </el-aside>
         <el-main style="overflow:hidden">
-          <el-scrollbar height="661px">
+          <el-scrollbar style="height: calc(100vh - 60px);">
             <router-view>
 
             </router-view>
@@ -103,6 +103,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+body {
+    height: 100%;
+}
+#homepage_box {
+    height: 100vh;
+}
 #user_info {
   float: right;
   padding-top: 5px;
