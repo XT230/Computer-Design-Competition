@@ -1,5 +1,10 @@
 <template>
     <div class="wrapper">
+        <div>
+            <el-card id="intro">
+                <div v-for="o in 4" :key="o" class="text item">对品台的一些介绍</div>
+            </el-card>
+        </div>
         <div class="container">
             <div class="drop">
                 <div class="content">
@@ -89,14 +94,24 @@ export default
     align-items: center;
     min-height: 100vh;
     background: #eff0f4;
+    background-image: linear-gradient(to left bottom, #f985c7, #fd87b5, #fd8ba5, #f99098, #f3968e, #f39e83, #efa87a, #e7b274, #dac46d, #c2d773, #9dea89, #5ffbb0);
+}
+
+.wrapper #intro {
+    position: relative;
+    left: -200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 500px;
+    height: 500px;
 }
 
 .container {
     position: relative;
-    left: 200px;
+    left: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .container .drop {
@@ -236,7 +251,7 @@ export default
     bottom: 0;
     width: 120px;
     height: 120px;
-    background: #c61dff;
+    background: #d76cfb7e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,7 +288,7 @@ export default
     width: 80px;
     height: 80px;
     border-radius: 49% 51% 52% 48% /63% 59% 41% 37%;
-    background: #01b4ff;
+    background: #01b3ff7d;
     box-shadow: inset 10px 10px 10px rgba(1, 180, 255, 0.05),
         15px 25px 10px rgba(1, 180, 255, 0.1),
         15px 20px 20px rgba(1, 180, 255, 0.1),

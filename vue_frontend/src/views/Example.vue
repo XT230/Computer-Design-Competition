@@ -48,7 +48,8 @@ const currentDate = ref(new Date())
   display: block;
 }
 #wenzhang{
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   height: 300px;
 }
 

@@ -142,12 +142,14 @@ export default {
     .inputbox
     {
         display: flex;
+        position: relative;
+        left: 60px;
         align-items: center;
         justify-content: center;
         width: 768px;
-        height: 50px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.10);
-        border-radius: 5px;
+        height: 40px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.20);
+        border-radius: 10px;
         border: 1px solid #d9d9e3;
     }
     .inputbox textarea
@@ -157,7 +159,7 @@ export default {
         border: none;
         width: 750px;
         height: 24px;
-        font-size: 19px;
+        font-size: 20px;
         line-height: 24px;
     }
     .inputbox textarea:focus

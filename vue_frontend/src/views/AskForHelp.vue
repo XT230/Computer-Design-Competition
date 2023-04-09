@@ -1,5 +1,5 @@
 <template>
-  <el-row :gutter="10">
+  <el-row :gutter="12">
     <el-col v-for="(o, index) in 11" :key="o" :span="8">
       <el-card shadow="hover">
         <h3>标题🍉</h3>
@@ -15,7 +15,8 @@
 
 <style scoped>
 .el-card {
+  margin-top: 10px;
   margin-bottom: 10px;
-  height: 100px;
+  height: 150px;
 }
 </style>

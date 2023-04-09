@@ -35,6 +35,7 @@ const input = ref('')
   margin-right: auto;
 }
 .tiezi{
+  margin-top: 10px;
   margin-bottom: 10px;
   height: 250px;
 }

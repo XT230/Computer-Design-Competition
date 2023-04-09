@@ -14,19 +14,18 @@
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item @click.native="jumpToUserInfo()">个人中心</el-dropdown-item>
-                <el-dropdown-item @click.native="jumpToFavorites()" >我的收藏</el-dropdown-item>
+                <el-dropdown-item @click.native="jumpToFavorites()">我的收藏</el-dropdown-item>
                 <!-- <el-dropdown-item>关注</el-dropdown-item> -->
                 <el-dropdown-item divided>退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
         </div>
-
       </el-header>
+
       <el-container id="down_box">
-        <el-aside width="200px">
-          <h5 class="mb-2" style="text-align: center;">功能区</h5>
-          <el-menu default-active="/mainpage/Recomend" class="el-menu-vertical-demo" ref="menu" router>
+        <el-aside width="200px" style="background-color: rgba(255, 255, 255, 0.5);">
+          <el-menu default-active="/mainpage/Recomend" class="el-menu-vertical-demo" ref="menu" router background-color="rgba(255, 255, 255, 0)">
             <el-menu-item index="/mainpage/Recomend">
               <template #title>
                 <el-icon>
@@ -35,7 +34,7 @@
                 <span>首页</span>
               </template>
             </el-menu-item>
-            <el-sub-menu index="2">
+            <el-sub-menu index="2" >
               <template #title>
                 <el-icon>
                   <!-- <location /> -->
@@ -64,10 +63,11 @@
           </el-menu>
         </el-aside>
         <el-main style="overflow:hidden">
-          <div id="main_contain">
-            <router-view></router-view>
-          </div>
-          
+          <el-scrollbar height="661px">
+            <router-view>
+
+            </router-view>
+          </el-scrollbar>
         </el-main>
       </el-container>
     </el-container>
@@ -79,6 +79,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { defineComponent } from 'vue'
 import router from '../router/index.js'
+import Vue from 'vue'
 
 export default defineComponent({
   data() {
@@ -94,8 +95,8 @@ export default defineComponent({
     }
   },
   mounted() {
-    // this.$refs.menu.open('2');
-    // this.$refs.menu.open('3');
+    (this.$refs.menu as any & {validate:Function} ).open('2');
+    (this.$refs.menu as any & {validate:Function} ).open('3');
     router.push('/mainpage/Recomend')
   }
 })
@@ -125,8 +126,10 @@ export default defineComponent({
 }
 
 .el-main {
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: #f2f2f200;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #ffffff00;
 }
 
 .el-dropdown-link {
@@ -149,7 +152,8 @@ export default defineComponent({
 }
 
 #down_box {
-height:100%;
-}
+  height: 100%;
+  background-image: linear-gradient(to left bottom, #f985c7, #fd87b5, #fd8ba5, #f99098, #f3968e, #f39e83, #efa87a, #e7b274, #dac46d, #c2d773, #9dea89, #5ffbb0);
 
+}
 </style>
