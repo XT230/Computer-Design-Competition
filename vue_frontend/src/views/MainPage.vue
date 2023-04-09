@@ -127,9 +127,8 @@ export default defineComponent({
 
 .el-main {
   background-color: #f2f2f200;
-  padding-top: 0px;
-  padding-bottom: 0px;
   color: #ffffff00;
+  padding:0px;
 }
 
 .el-dropdown-link {
@@ -155,5 +154,9 @@ export default defineComponent({
   height: 100%;
   background-image: linear-gradient(to left bottom, #f985c7, #fd87b5, #fd8ba5, #f99098, #f3968e, #f39e83, #efa87a, #e7b274, #dac46d, #c2d773, #9dea89, #5ffbb0);
 
+}
+.el-menu
+{
+  border-right: solid 0px;
 }
 </style>

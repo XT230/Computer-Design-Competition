@@ -4,8 +4,11 @@
       <el-col v-for="(o, index) in 10" :key="o" :span="20">
         <el-card class="tiezi" shadow="hover">
           <h3>我来夸他</h3>
-          <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            class="image" />
+          <div style="width: 185px;">
+            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+            class="image"  />
+          </div>
+          
         </el-card>
       </el-col>
     </el-row>
@@ -18,11 +21,7 @@ const input = ref('')
 
 </script>
 
-<style>
-.image {
-  width: 20%;
-  display: block;
-}
+<style scoped>
 
 #big_box {
   width: 70%;
@@ -38,6 +37,11 @@ const input = ref('')
   margin-top: 10px;
   margin-bottom: 10px;
   height: 250px;
+}
+
+div>img {
+  width: 100%;
+  display: block;
 }
 /* .el-card {
   margin-bottom: 10px;

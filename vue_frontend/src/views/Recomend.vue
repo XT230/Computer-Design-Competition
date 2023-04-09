@@ -1,25 +1,27 @@
 
 <template>
-  <el-carousel :interval="4000" type="card" height="200px">
-    <el-carousel-item v-for="item in 6" :key="item">
-      <h3 text="2xl" justify="center">{{ item }}</h3>
-    </el-carousel-item>
-  </el-carousel>
-  <el-row justify='space-between'>
-    <el-col v-for="(o, index) in 5" :key="o" :span="5" >
-      <el-card  id="tuijianwenzhang" >
-        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-          class="image" />
-        <div >
-          <span>Yummy hamburger</span>
-          <div class="bottom">
-            <time class="time">{{ currentDate }}</time>
-            <el-button text class="button">Operating</el-button>
+  <div style="padding-left: 20px;padding-right: 20px; padding-top: 20px;">
+    <el-carousel :interval="4000" type="card" height="300px">
+      <el-carousel-item v-for="item in 6" :key="item">
+        <h3 text="2xl" justify="center">{{ item }}</h3>
+      </el-carousel-item>
+    </el-carousel>
+    <el-row justify='space-between'>
+      <el-col v-for="(o, index) in 5" :key="o" :span="5">
+        <el-card id="tuijianwenzhang">
+          <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+            class="image" style="width: 100%;" />
+          <div>
+            <span>Yummy hamburger</span>
+            <div class="bottom">
+              <time class="time">{{ currentDate }}</time>
+              <el-button text class="button">Operating</el-button>
+            </div>
           </div>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 
@@ -63,14 +65,19 @@ const currentDate = ref(new Date())
   padding: 0;
   min-height: auto;
 }
-
-.image {
+ 
+#tuijianwenzhang>.image {
   width: 100%;
   display: block;
 }
 
-#tuijianwenzhang{
+#tuijianwenzhang {
   margin-bottom: 20px;
   height: 90%;
+}
+
+#tuijianwenzhang>img{
+  width: 100%;
+  display: block;
 }
 </style>

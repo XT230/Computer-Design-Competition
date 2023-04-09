@@ -1,55 +1,37 @@
 <template>
-  <div style="margin-bottom: 10px;">
-    <el-button round size="large">初中</el-button>
-    <el-button round size="large">高中</el-button>
-    <el-button round size="large">大学</el-button>
+  <el-menu class="el-menu-demo" mode="horizontal" background-color="rgba(255, 255, 255, 0)" router>
+    <el-menu-item index="/mainpage/CareerPlanning/CPArtical">推荐文章</el-menu-item>
+    <el-sub-menu index="2">
+      <template #title>推荐答主</template>
+      <el-menu-item index="/mainpage/CareerPlanning/CPUser">高中</el-menu-item>
+      <el-menu-item index="/mainpage/CareerPlanning/CPUser">大学</el-menu-item>
+      <el-menu-item index="/mainpage/CareerPlanning/CPUser">硕士</el-menu-item>
+    </el-sub-menu>
+  </el-menu>
+  <div style="padding-left: 20px;padding-right: 20px; padding-top: 20px;">
+    <RouterView />
   </div>
-  <el-row justify='space-between'>
-    <el-col v-for="(o, index) in 8" :key="o" :span="5" >
-      <el-card  id="user" >
-        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-          class="image" style="width: 100%;"/>
-        <div >
-          <h3>用户名</h3>
-          <div class="bottom">
-            <p>个人简介</p>
-            <el-button text class="button" >进入TA的主页</el-button>
-          </div>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" >
 import { ref } from 'vue'
-
+import { RouterLink, RouterView } from 'vue-router'
+import { defineComponent } from 'vue'
+import router from '../router/index.js'
+import Vue from 'vue'
+export default defineComponent({
+  mounted() {
+    router.push('/mainpage/CareerPlanning/CPArtical')
+  }
+})
 </script>
 
-<style>
-
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+<style scoped >
+.el-menu-demo {
+  background-image: linear-gradient(90deg, #ffffff7f 10%, #ffffff00 90%);
 }
 
-.button {
-  padding: 0;
-  min-height: auto;
+.el-menu--horizontal {
+  border-bottom: solid 0px;
 }
-
-.image {
-  width: 100%;
-  display: block;
-}
-
-#user {
-  margin-bottom: 20px;
-  height: 400px;
-}
-
-
 </style>
