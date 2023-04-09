@@ -44,17 +44,6 @@
                 </div>
             </template>
             {{ userMail }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-            <template #label>
-                <div class="cell-item">
-                    <el-icon :style="iconStyle">
-                        <office-building />
-                    </el-icon>
-                    邮箱
-                </div>
-            </template>
-            {{ userMail }}
         </el-descriptions-item><el-descriptions-item>
             <template #label>
                 <div class="cell-item">
