@@ -105,6 +105,8 @@ export default {
     {
         height: 90%;
         overflow: auto;
+        position: relative;
+        left:100px
     }
     .user,
     .ai 

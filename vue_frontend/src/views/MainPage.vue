@@ -57,7 +57,7 @@
                 </el-icon>
                 <span>学业谜思</span>
               </template>
-              <el-menu-item index="/mainpage/CareerPlanning">规划答疑</el-menu-item>
+              <el-menu-item index="/mainpage/CareerPlanning" click="">规划答疑</el-menu-item>
             </el-sub-menu>
 
           </el-menu>

@@ -6,23 +6,34 @@
           <h3>我来夸他</h3>
           <div style="width: 185px;">
             <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            class="image"  />
+              class="image" />
           </div>
-          
+
         </el-card>
       </el-col>
     </el-row>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" >
 import { ref } from 'vue'
-const input = ref('')
+import router from '../router/index.js'
+import { defineComponent } from 'vue'
+export default defineComponent({
+  data() {
+    return {
+      count: 0,
+      load() {
+        this.count += 1
+      }
+    }
+  },
+
+})
 
 </script>
 
 <style scoped>
-
 #big_box {
   width: 70%;
   height: 100%;
@@ -33,7 +44,8 @@ const input = ref('')
   margin-left: auto;
   margin-right: auto;
 }
-.tiezi{
+
+.tiezi {
   margin-top: 10px;
   margin-bottom: 10px;
   height: 250px;
@@ -43,6 +55,7 @@ div>img {
   width: 100%;
   display: block;
 }
+
 /* .el-card {
   margin-bottom: 10px;
   height: 100px;

@@ -1,10 +1,10 @@
 <template>
-  <div style="padding-left: 20px;padding-right: 20px; padding-top: 20px;">
-    <el-row :gutter="12" justify='space-between'>
-      <el-col v-for="(o, index) in 8" :key="o" :span="6">
-        <el-card id="wenzhang" >
+  <div id="big_box">
+    <el-row>
+      <el-col v-for="(o, index) in 20" :key="o" :span="20">
+        <el-card id="wenzhang">
           <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            class="image"  style="width: 100%;"/>
+            class="image" style="width: 100%;" />
           <div style="padding: 1px">
             <span>Yummy hamburger</span>
             <div class="bottom">
@@ -27,6 +27,20 @@ const currentDate = ref(new Date())
 </script>
 
 <style scoped>
+#big_box {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
 .time {
   font-size: 12px;
   color: #999;

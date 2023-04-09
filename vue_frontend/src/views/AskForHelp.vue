@@ -1,7 +1,7 @@
 <template>
-  <div style="padding-left: 20px;padding-right: 20px; padding-top: 20px;">
-    <el-row :gutter="12">
-      <el-col v-for="(o, index) in 11" :key="o" :span="8">
+  <div id="big_box">
+    <el-row >
+      <el-col v-for="(o, index) in 11" :key="o" :span="20">
         <el-card shadow="hover">
           <h3>标题🍉</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sapiente tempora architecto debitis dolores
@@ -18,6 +18,19 @@
 </script>
 
 <style scoped>
+#big_box {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
 .el-card {
   margin-top: 10px;
   margin-bottom: 10px;
