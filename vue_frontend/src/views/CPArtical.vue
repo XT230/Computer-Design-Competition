@@ -1,18 +1,23 @@
 <template>
-  <el-row justify='space-between'>
-    <el-col v-for="(o, index) in 5" :key="o" :span="5">
-      <el-card id="tuijianwenzhang">
-        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-          class="image" style="width: 100%;" />
-        <div>
-          <span>Yummy hamburger</span>
-          <div class="bottom">
-            <el-button text class="button">Operating</el-button>
+  <div id="big_box">
+    <el-row>
+      <el-col v-for="(o, index) in 20" :key="o" :span="20">
+        <el-card id="wenzhang">
+          <div style="height: 200px;">
+            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+              class="image" style="height: 100%;" />
           </div>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
+
+          <div style="padding: 1px ">
+            <span>Yummy hamburger</span>
+            <div class="bottom">
+              <el-button text class="button">Operating</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
   
 <script lang="ts" setup>
@@ -34,29 +39,30 @@ import { ref } from 'vue'
   min-height: auto;
 }
 
-#tuijianwenzhang>.image {
-  width: 100%;
-  display: block;
-}
-
-#tuijianwenzhang {
-  margin-bottom: 20px;
-  height: 90%;
-}
-
-#tuijianwenzhang>img {
-  width: 100%;
-  display: block;
-}
-
-.image {
-  width: 100%;
-  display: block;
-}
 
 #user {
   margin-bottom: 20px;
   height: 400px;
+}
+
+#big_box {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+#wenzhang {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 300px;
 }
 </style>
   

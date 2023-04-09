@@ -6,7 +6,7 @@
         <h3 text="2xl" justify="center">{{ item }}</h3>
       </el-carousel-item>
     </el-carousel>
-    <el-row justify='space-between'>
+  <!-- <el-row justify='space-between'>
       <el-col v-for="(o, index) in 5" :key="o" :span="5">
         <el-card id="tuijianwenzhang">
           <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
@@ -20,7 +20,20 @@
           </div>
         </el-card>
       </el-col>
-    </el-row>
+          </el-row> -->
+    <div id="recomend_artical_box">
+      <el-card v-for="item in 40" :key="item" id="tuijianwenzhang">
+        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+          class="image" style="width: 100%;" />
+        <div>
+          <span>Yummy hamburger</span>
+          <div class="bottom">
+            <time class="time">{{ currentDate }}</time>
+            <el-button text class="button">Operating</el-button>
+          </div>
+        </div>
+      </el-card>
+    </div>
   </div>
 </template>
 
@@ -65,7 +78,7 @@ const currentDate = ref(new Date())
   padding: 0;
   min-height: auto;
 }
- 
+
 #tuijianwenzhang>.image {
   width: 100%;
   display: block;
@@ -73,11 +86,27 @@ const currentDate = ref(new Date())
 
 #tuijianwenzhang {
   margin-bottom: 20px;
-  height: 90%;
+  width: 250px;
+  height: 300px;
+  float: left;
+  margin-right: 20px;
 }
 
-#tuijianwenzhang>img{
+#tuijianwenzhang>img {
   width: 100%;
   display: block;
+}
+
+#recomend_artical_box {
+  width: 90%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
 }
 </style>

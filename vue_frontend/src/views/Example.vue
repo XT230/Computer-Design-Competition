@@ -3,9 +3,12 @@
     <el-row>
       <el-col v-for="(o, index) in 20" :key="o" :span="20">
         <el-card id="wenzhang">
-          <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            class="image" style="width: 100%;" />
-          <div style="padding: 1px">
+          <div style="height: 200px;">
+            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+              class="image" style="height: 100%;" />
+          </div>
+
+          <div style="padding: 1px ">
             <span>Yummy hamburger</span>
             <div class="bottom">
               <time class="time">{{ currentDate }}</time>
@@ -63,6 +66,6 @@ const currentDate = ref(new Date())
 #wenzhang {
   margin-top: 10px;
   margin-bottom: 10px;
-  height: 400px;
+  height: 300px;
 }
 </style>
