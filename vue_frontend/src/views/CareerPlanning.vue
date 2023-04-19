@@ -9,6 +9,14 @@
       <el-select v-model="value" class="m-2" placeholder="Select">
         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
+      筛选：
+      <el-select v-model="value" class="m-2" placeholder="Select">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+      </el-select>
+      筛选：
+      <el-select v-model="value" class="m-2" placeholder="Select">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+      </el-select>
     </div>
 
   </div>
@@ -58,7 +66,5 @@ export default defineComponent({
   padding: 0px;
 }
 
-#select{
-  
-}
+#select {}
 </style>

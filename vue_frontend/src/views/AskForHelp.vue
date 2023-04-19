@@ -2,7 +2,7 @@
   <div id="big_box">
     <el-row>
       <el-col v-for="(o, index) in 11" :key="o" :span="20">
-        <el-card shadow="hover">
+        <el-card shadow="hover" @click="jumpToAritical">
           <h3>标题🍉</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sapiente tempora architecto debitis dolores
             deserunt, numquam tempore nam amet, aliquam recusandae tenetur consectetur. Explicabo autem dignissimos vitae
@@ -41,7 +41,7 @@ import '@wangeditor/editor/dist/css/style.css'
 import { defineComponent } from 'vue'
 import { onBeforeUnmount, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
-
+import router from '../router/index.js'
 export default defineComponent({
   components: { Editor, Toolbar },
   setup() {
@@ -64,6 +64,9 @@ export default defineComponent({
     const handleCreated = (editor: any) => {
       editorRef.value = editor // 记录 editor 实例，重要！
     }
+    const jumpToAritical = () => {
+      router.push('/mainpage/ReadArtical')
+    }
     return {
       drawer,
       mode: 'default',
@@ -72,7 +75,8 @@ export default defineComponent({
       valueHtml,
       toolbarConfig,
       editorConfig,
-      handleCreated
+      handleCreated,
+      jumpToAritical
     }
   }
 })

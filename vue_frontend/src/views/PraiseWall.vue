@@ -2,13 +2,12 @@
   <div id="big_box">
     <el-row>
       <el-col v-for="(o, index) in 10" :key="o" :span="20">
-        <el-card class="tiezi" shadow="hover">
+        <el-card class="tiezi" shadow="hover" @click="jumpToAriticle">
           <h3>我来夸他</h3>
           <div style="width: 185px;">
             <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
               class="image" />
           </div>
-
         </el-card>
       </el-col>
     </el-row>
@@ -67,6 +66,9 @@ export default defineComponent({
     const handleCreated = (editor: any) => {
       editorRef.value = editor // 记录 editor 实例，重要！
     }
+    const jumpToAriticle = () => {
+      router.push('/mainpage/ReadArtical')
+    }
     return {
       drawer,
       mode: 'default',
@@ -76,7 +78,9 @@ export default defineComponent({
       toolbarConfig,
       editorConfig,
       handleCreated,
+      jumpToAriticle,
       currentDate
+
     }
   }
 
