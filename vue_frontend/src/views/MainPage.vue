@@ -1,12 +1,12 @@
 <template>
   <div class="common-layout" id="homepage_box">
-    <el-container  direction="vertical">
+    <el-container direction="vertical">
       <el-header>
         <h2 id="website_title">心理健康服务平台</h2>
         <div id="user_info">
           <el-dropdown>
             <span class="el-dropdown-link">
-              <h3>{{ userID }}</h3>
+              <!-- <h3>{{ userID }}</h3> -->
               <div id="user_avatar">
                 <el-avatar :size="50" :src="userAvatar" />
               </div>
@@ -25,7 +25,8 @@
 
       <el-container id="down_box">
         <el-aside width="200px" style="background-color: rgba(255, 255, 255, 0.5);">
-          <el-menu default-active="/mainpage/Recomend" class="el-menu-vertical-demo" ref="menu" router background-color="rgba(255, 255, 255, 0)">
+          <el-menu default-active="/mainpage/Recomend" class="el-menu-vertical-demo" ref="menu" router
+            background-color="rgba(255, 255, 255, 0)">
             <el-menu-item index="/mainpage/Recomend">
               <template #title>
                 <el-icon>
@@ -34,7 +35,7 @@
                 <span>首页</span>
               </template>
             </el-menu-item>
-            <el-sub-menu index="2" >
+            <el-sub-menu index="2">
               <template #title>
                 <el-icon>
                   <!-- <location /> -->
@@ -86,7 +87,7 @@ export default defineComponent({
   data() {
     return {
       userAvatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-      userID: getSessionStorage("user").nickname,
+      // userID: getSessionStorage("user").nickname,
       jumpToUserInfo() {
         router.push('/mainpage/UserInfo')
       },
@@ -99,21 +100,22 @@ export default defineComponent({
     }
   },
   mounted() {
-    (this.$refs.menu as any & {validate:Function} ).open('2');
-    (this.$refs.menu as any & {validate:Function} ).open('3');
+    (this.$refs.menu as any & { validate: Function }).open('2');
+    (this.$refs.menu as any & { validate: Function }).open('3');
     router.push('/mainpage/Recomend')
   }
 })
 </script>
 
 <style scoped>
-
 body {
-    height: 100%;
+  height: 100%;
 }
+
 #homepage_box {
-    height: 100vh;
+  height: 100vh;
 }
+
 #user_info {
   float: right;
   padding-top: 5px;
@@ -139,7 +141,7 @@ body {
 .el-main {
   background-color: #f2f2f200;
   color: #ffffff00;
-  padding:0px;
+  padding: 0px;
 }
 
 .el-dropdown-link {
@@ -166,8 +168,8 @@ body {
   background-image: linear-gradient(to left bottom, #f985c7, #fd87b5, #fd8ba5, #f99098, #f3968e, #f39e83, #efa87a, #e7b274, #dac46d, #c2d773, #9dea89, #5ffbb0);
 
 }
-.el-menu
-{
+
+.el-menu {
   border-right: solid 0px;
 }
 </style>

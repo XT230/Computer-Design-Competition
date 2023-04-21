@@ -13,6 +13,7 @@ import UserMainPage from '../views/UserMainPage.vue'
 import CPArtical from '../views/CPArtical.vue'
 import CPUser from '../views/CPUser.vue'
 import ReadArtical from '../views/ReadArtical.vue'
+import Register from '../views/Register.vue'
 import path from 'path'
 const router = createRouter({
   history: createWebHistory(),
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     },
     {
       path: '/mainpage',

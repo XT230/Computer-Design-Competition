@@ -6,7 +6,7 @@
         <h3 text="2xl" justify="center">{{ item }}</h3>
       </el-carousel-item>
     </el-carousel>
-  <!-- <el-row justify='space-between'>
+    <!-- <el-row justify='space-between'>
       <el-col v-for="(o, index) in 5" :key="o" :span="5">
         <el-card id="tuijianwenzhang">
           <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
@@ -22,15 +22,11 @@
       </el-col>
           </el-row> -->
     <div id="recomend_artical_box">
-      <el-card v-for="item in 40" :key="item" id="tuijianwenzhang">
+      <el-card v-for="item in 40" :key="item" id="tuijianwenzhang" @click="jumpToAriticle">
         <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
           class="image" style="width: 100%;" />
         <div>
           <span>Yummy hamburger</span>
-          <div class="bottom">
-            <time class="time">{{ currentDate }}</time>
-            <el-button text class="button">Operating</el-button>
-          </div>
         </div>
       </el-card>
     </div>
@@ -38,10 +34,23 @@
 </template>
 
 
-<script lang="ts" setup>
+<script lang="ts" >
 import { ref } from 'vue'
+import { defineComponent } from 'vue'
+import router from '../router/index.js'
 
+export default defineComponent({
+  setup() {
+    const jumpToAriticle = () => {
+      router.push('/mainpage/ReadArtical')
+    }
+    return {
+      jumpToAriticle
+    }
+  }
+})
 const currentDate = ref(new Date())
+
 </script>
 
 <style scoped>
