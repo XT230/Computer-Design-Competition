@@ -24,7 +24,7 @@
 import axios from 'axios'
 import { defineComponent, onBeforeMount, onMounted } from 'vue'
 import { reactive, toRefs } from "vue";
-axios.defaults.baseURL = 'http://localhost:8088/api/'
+axios.defaults.baseURL = 'http://114.116.22.152:8088/api/'
 export default defineComponent({
     setup() {
         const title = "这是标题"

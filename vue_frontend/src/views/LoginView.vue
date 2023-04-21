@@ -35,7 +35,7 @@ import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { setSessionStorage } from '@/common'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:8088/api/'
+axios.defaults.baseURL = 'http://114.116.22.152:8088/api/'
 
 export default
     {
