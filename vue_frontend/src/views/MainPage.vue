@@ -6,7 +6,7 @@
         <div id="user_info">
           <el-dropdown>
             <span class="el-dropdown-link">
-              <!-- <h3>{{ userID }}</h3> -->
+              <h3>{{ userID }}</h3>
               <div id="user_avatar">
                 <el-avatar :size="50" :src="userAvatar" />
               </div>
@@ -87,7 +87,7 @@ export default defineComponent({
   data() {
     return {
       userAvatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-      // userID: getSessionStorage("user").nickname,
+      userID: getSessionStorage("user").nickname,
       jumpToUserInfo() {
         router.push('/mainpage/UserInfo')
       },
