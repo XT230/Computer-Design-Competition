@@ -12,7 +12,7 @@
                     <form>
                         <div class="inputBox">
                             <i class="fa fa-user-o"></i>
-                            <input type="text" v-model="user.userid" placeholder="用户名">
+                            <input type="text" v-model="user.username" placeholder="用户名">
                         </div>
                         <div class="inputBox">
                             <i class="fa fa-lock"></i>
@@ -35,7 +35,7 @@ import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { setSessionStorage } from '@/common'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:8080/api/'
+axios.defaults.baseURL = 'http://localhost:8088/api/'
 
 export default
     {
@@ -43,12 +43,12 @@ export default
             const router = useRouter();
             const state = reactive({
                 user: {
-                    userid: '',
+                    username: '',
                     password: ''
                 }
             })
             function login() {
-                if (state.user.userid == '') {
+                if (state.user.username == '') {
                     alert('账号不能为空！');
                     return;
                 }
@@ -56,10 +56,30 @@ export default
                     alert('密码不能为空！');
                     return;
                 }
-                axios.post('users/login', state.user)
+                axios.post('user/login', state.user)
                     .then((response) => {
                         let user = response.data;
                         if (user != '') {
+                            axios.get("user/getSnameBySid?sid=" + user.sid)
+                                .then((response) => 
+                                {
+                                    user.sname = response.data.sname; 
+                                    setSessionStorage('user', user);
+                                })
+                                .catch((error) => 
+                                {
+                                    console.log(error);
+                                })
+                            axios.get("user/getDnameByDid?did=" + user.did)
+                                .then((response) => 
+                                {
+                                    user.dname = response.data.dname; 
+                                    setSessionStorage('user', user);
+                                })
+                                .catch((error) => 
+                                {
+                                    console.log(error);
+                                })
                             setSessionStorage('user', user);
                             router.push('/Mainpage');
                         }
@@ -68,7 +88,6 @@ export default
                         }
                     })
                     .catch((error) => {
-                        alert(error);
                         console.log(error);
                     })
             }

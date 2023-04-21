@@ -27,10 +27,10 @@
   <el-drawer v-model="drawer" title="帖子发表" :direction="direction" size="70%">
     <div style="border: 1px solid #ccc">
       <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
-      <Editor style="height: 300px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
+      <Editor style="height: 300px; overflow-y: hidden;"  :defaultConfig="editorConfig" :mode="mode"
         @onCreated="handleCreated" />
     </div>
-    <el-button type="primary" style="float: right; margin-top: 10px;">发布</el-button>
+    <el-button @click="publish" type="primary" style="float: right; margin-top: 10px;">发布</el-button>
   </el-drawer>
 </template>
 
@@ -67,6 +67,10 @@ export default defineComponent({
     const jumpToAritical = () => {
       router.push('/mainpage/ReadArtical')
     }
+    function publish()
+    {
+        console.log(editorRef.value.getHtml());
+    }
     return {
       drawer,
       mode: 'default',
@@ -76,7 +80,8 @@ export default defineComponent({
       toolbarConfig,
       editorConfig,
       handleCreated,
-      jumpToAritical
+      jumpToAritical,
+      publish
     }
   }
 })

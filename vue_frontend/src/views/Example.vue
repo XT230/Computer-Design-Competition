@@ -62,6 +62,7 @@ export default defineComponent({
     onMounted(() => {
       setTimeout(() => {
         valueHtml.value = '请输入内容...'
+        console.log("here")
       }, 1500)
     })
     onBeforeUnmount(() => {

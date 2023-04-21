@@ -60,6 +60,7 @@
 
 <script lang="ts">
 import { computed, ref } from 'vue'
+import { getSessionStorage } from '@/common'
 import {
     Iphone,
     Location,
@@ -75,11 +76,11 @@ export default defineComponent({
     data() {
         return {
             userAvatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-            userID: "大家好我是说的道理",
-            userSchool: "东北大学秦皇岛分校",
-            userPhone: "18100000000",
-            userMail: "wtf",
-            userEdu: "本科",
+            userID: getSessionStorage("user").nickname,
+            userSchool: getSessionStorage("user").sname,
+            userPhone: getSessionStorage("user").userPhone,
+            userMail: getSessionStorage("user").username,
+            userEdu: getSessionStorage("user").dname,
             iconStyle: computed(() => {
                 const marginMap = {
                     large: '8px',

@@ -78,6 +78,7 @@
 <script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { defineComponent } from 'vue'
+import { getSessionStorage } from '@/common'
 import router from '../router/index.js'
 import Vue from 'vue'
 
@@ -85,7 +86,7 @@ export default defineComponent({
   data() {
     return {
       userAvatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-      userID: "大家好我是说的道理",
+      userID: getSessionStorage("user").nickname,
       jumpToUserInfo() {
         router.push('/mainpage/UserInfo')
       },
