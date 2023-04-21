@@ -6,16 +6,16 @@
     </el-menu>
     <div style="color: black; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);" id="select">
       筛选：
-      <el-select v-model="value" class="m-2" placeholder="Select">
-        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+      <el-select v-model="value1" class="m-2" placeholder="Select">
+        <el-option v-for="item in options1" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
       筛选：
-      <el-select v-model="value" class="m-2" placeholder="Select">
-        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+      <el-select v-model="value2" class="m-2" placeholder="Select">
+        <el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
       筛选：
-      <el-select v-model="value" class="m-2" placeholder="Select">
-        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+      <el-select v-model="value3" class="m-2" placeholder="Select">
+        <el-option v-for="item in options3" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
     </div>
 
@@ -37,8 +37,31 @@ import Vue from 'vue'
 export default defineComponent({
   data() {
     return {
-      value: '',
-      options: [{
+      value1: '',
+      options1: [{
+        value: 'op1',
+        label: '高中'
+      }, {
+        value: 'op2',
+        label: '大学'
+      }, {
+        value: 'op3',
+        label: '硕士'
+      }],
+      value2: '',
+      options2: [{
+        value: 'op1',
+        label: '高中'
+      }, {
+        value: 'op2',
+        label: '大学'
+      }, {
+        value: 'op3',
+        label: '硕士'
+      }]
+      ,
+      value3: '',
+      options3: [{
         value: 'op1',
         label: '高中'
       }, {
@@ -65,6 +88,4 @@ export default defineComponent({
 .el-menu--popup {
   padding: 0px;
 }
-
-#select {}
 </style>
