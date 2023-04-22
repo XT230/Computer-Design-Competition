@@ -4,8 +4,27 @@
             <el-col span="3">
                 <el-avatar :size="150" :src="userAvatar"></el-avatar>
             </el-col>
-            <el-col span="3" style="width: ">
-                <h1 style="padding:70px 0;">{{ userID }}dsfaasdfasfa</h1>
+            <el-col span="3">
+                <h1 style="padding:70px 0;">{{ userID }}</h1>
+            </el-col>
+        </el-row>
+        <el-row justify="space-evenly" style="width: 100%;">
+            <el-col span="3" style="width: 30%;border-radius: 10px;">
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;">
+
+                    <h1 style="padding:40px 0;">积分</h1>
+                </div>
+            </el-col>
+            <el-col span="3" style="width: 30%;">
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;">
+                    <h1 style="padding:40px 0;">大学</h1>
+                </div>
+            </el-col>
+            <el-col span="3" style="width: 30%;">
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;">
+                    <h1 style="padding:40px 0;">我的消息</h1>
+
+                </div>
             </el-col>
         </el-row>
     </div>
