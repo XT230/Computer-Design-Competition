@@ -1,6 +1,6 @@
 <template>
   <div id="big_box">
-    <el-row>
+    <el-row style="width: 100%;">
       <el-col v-for="article in articles" :span="20">
         <el-card id="wenzhang">
           <div style="height: 200px;">
@@ -26,31 +26,30 @@ import { defineComponent, onBeforeMount, onMounted } from 'vue'
 import { reactive, toRefs } from "vue";
 axios.defaults.baseURL = 'http://114.116.22.152:8088/api/'
 export default defineComponent({
-    setup() {
-        const title = "这是标题"
-        const main_part = "这是正文"
-        const author = "这是作者"
-        const data = reactive({
-            articles: []
-        })
-            axios.get("article/getAll")
-                .then((response) => {
-                    for(let article of response.data)
-                    {
-                        data.articles.push(article)
-                    }
-                    console.log(data.articles)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-        return {
-            title,
-            main_part,
-            author,
-            ...toRefs(data)
+  setup() {
+    const title = "这是标题"
+    const main_part = "这是正文"
+    const author = "这是作者"
+    const data = reactive({
+      articles: []
+    })
+    axios.get("article/getAll")
+      .then((response) => {
+        for (let article of response.data) {
+          data.articles.push(article)
         }
+        console.log(data.articles)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    return {
+      title,
+      main_part,
+      author,
+      ...toRefs(data)
     }
+  }
 })
 
 </script>
