@@ -11,7 +11,6 @@
           <div style="padding: 1px ">
             <span>Yummy hamburger</span>
             <div class="bottom">
-              <time class="time">{{ currentDate }}</time>
             </div>
           </div>
         </el-card>
@@ -29,42 +28,13 @@ import { onBeforeUnmount, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import router from '../router/index.js'
 export default defineComponent({
-  components: { Editor, Toolbar },
   setup() {
-    const currentDate = ref(new Date())
-    const drawer = ref(false)
-    const direction = ref('btt')
-    const editorRef = shallowRef()
-    const valueHtml = ref('<p>hello</p>')
-    const toolbarConfig = {}
-    const editorConfig = { placeholder: '请输入内容...' }
-    onMounted(() => {
-      setTimeout(() => {
-        valueHtml.value = '请输入内容...'
-        console.log("here")
-      }, 1500)
-    })
-    onBeforeUnmount(() => {
-      const editor = editorRef.value
-      if (editor == null) return
-      editor.destroy()
-    })
-    const handleCreated = (editor: any) => {
-      editorRef.value = editor // 记录 editor 实例，重要！
-    }
+
     const jumpToAritical = () => {
       router.push('/mainpage/ReadArtical')
     }
     return {
-      drawer,
-      mode: 'default',
-      direction,
-      editorRef,
-      valueHtml,
-      toolbarConfig,
-      editorConfig,
-      handleCreated,
-      currentDate,
+
       jumpToAritical
     }
   }
