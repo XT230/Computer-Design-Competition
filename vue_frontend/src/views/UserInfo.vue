@@ -4,12 +4,8 @@
             <el-col span="3">
                 <el-avatar :size="150" :src="userAvatar"></el-avatar>
             </el-col>
-            <el-col span="20">
-                <h1>{{ userID }}</h1>
-                <h3>{{ userSchool }}</h3>
-                <h3>{{ userEdu }}</h3>
-                <h3>{{ userPhone }}</h3>
-                <h3>{{ userMail }}</h3>
+            <el-col span="3" style="width: ">
+                <h1 style="padding:70px 0;">{{ userID }}dsfaasdfasfa</h1>
             </el-col>
         </el-row>
     </div>
