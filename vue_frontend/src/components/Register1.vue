@@ -114,7 +114,7 @@ export default defineComponent({
         });
         const submitForm = async (formEl: FormInstance | undefined) => {
 
-            router.push('/register/setp2')
+            router.push('/register/step2')
 
         };
         const school = Array.from({ length: 10000 }).map((_, idx) => ({
