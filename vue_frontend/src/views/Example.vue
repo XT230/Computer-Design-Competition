@@ -1,8 +1,8 @@
 <template>
   <div id="big_box">
-    <el-row>
-      <el-col v-for="(o, index) in 20" :key="o" :span="20">
-        <el-card id="wenzhang" @click="jumpToAritical">
+    <el-row style="width: 100%;">
+      <el-col v-for="(article, index) in articles" :span="20">
+        <el-card id="wenzhang" @click="jumpToAritical(article.aid)">
           <div style="height: 200px;">
             <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
               class="image" style="height: 100%;" />
@@ -21,20 +21,49 @@
 
 <script lang="ts">
 import { ref } from 'vue'
+import axios from 'axios'
+
 import { ElMessageBox } from 'element-plus'
 import '@wangeditor/editor/dist/css/style.css'
 import { defineComponent } from 'vue'
 import { onBeforeUnmount, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import router from '../router/index.js'
+import type { Article } from '@/common'
+import { reactive, toRefs } from "vue";
+
 export default defineComponent({
   setup() {
 
-    const jumpToAritical = () => {
-      router.push('/mainpage/ReadArtical')
+    const valueHtml = ref('')
+    const data = reactive({
+      articles: new Array<Article>
+    })
+    const jumpToAritical = (aid: number) => {
+      router.push({
+        path: '/mainpage/ReadArtical',
+        query: {
+          aid: aid
+        }
+      })
     }
+    onMounted(() => {
+      setTimeout(() => {
+        valueHtml.value = ''
+      }, 1500)
+      axios.get("article/getArticlesByType?type=2")
+        .then((response) => {
+          for (let article of response.data) {
+            data.articles.push(article)
+          }
+          console.log(data.articles)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    })
     return {
-
+      ...toRefs(data),
       jumpToAritical
     }
   }

@@ -14,6 +14,10 @@ import CPArtical from '../views/CPArtical.vue'
 import CPUser from '../views/CPUser.vue'
 import ReadArtical from '../views/ReadArtical.vue'
 import Register from '../views/Register.vue'
+import Register1 from '../components/Register1.vue'
+import Register2 from '../components/Register2.vue'
+import Register3 from '../components/Register3.vue'
+
 import path from 'path'
 const router = createRouter({
   history: createWebHistory(),
@@ -26,7 +30,12 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      component: Register
+      component: Register,
+      children: [
+        { path: 'step1', component: Register1 },
+        { path: 'step2', component: Register2 },
+        { path: 'step3', component: Register3 }
+      ]
     },
     {
       path: '/mainpage',

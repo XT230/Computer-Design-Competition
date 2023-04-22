@@ -9,7 +9,7 @@
       </el-col>
     </el-row>
   </div>
-  <el-affix :offset="120" position="bottom" style="position: absolute; right: 5%; bottom: 10%;">
+  <el-affix :offset="60" position="bottom" style="position: absolute; right: 5%; bottom: 10%;">
     <div style="border-radius:30px;background-color: white; width: 60px; height: 60px;" @click="drawer = true">
       <svg t="1681884570963" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="2619" width="50" height="50" style="padding-left: 5px;padding-top: 5px;">
@@ -26,7 +26,7 @@
     <input style="width: 100%;height: 40px; margin-bottom: 10px; border-radius: 3px;" value=请键入标题>
     <div style="border: 1px solid #ccc">
       <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
-      <Editor style="height: 300px; overflow-y: hidden;" :defaultConfig="editorConfig" :mode="mode"
+      <Editor style="height: 250px; overflow-y: hidden;" :defaultConfig="editorConfig" :mode="mode"
         @onCreated="handleCreated" />
     </div>
     <el-button @click="publish" type="primary" style="float: right; margin-top: 10px;">发布</el-button>
@@ -63,15 +63,15 @@ export default defineComponent({
         valueHtml.value = ''
       }, 1500)
       axios.get("article/getArticlesByType?type=2")
-      .then((response) => {
+        .then((response) => {
           for (let article of response.data) {
             data.articles.push(article)
           }
           console.log(data.articles)
-      })
-      .catch((error) => {
+        })
+        .catch((error) => {
           console.log(error)
-      })
+        })
     })
     onBeforeUnmount(() => {
       const editor = editorRef.value
@@ -81,7 +81,7 @@ export default defineComponent({
     const handleCreated = (editor: any) => {
       editorRef.value = editor // 记录 editor 实例，重要！
     }
-    const jumpToAritical = (aid : number) => {
+    const jumpToAritical = (aid: number) => {
       router.push({
         path: '/mainpage/ReadArtical',
         query: {

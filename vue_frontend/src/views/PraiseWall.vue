@@ -1,8 +1,8 @@
 <template>
   <div id="big_box">
-    <el-row>
-      <el-col v-for="(o, index) in 10" :key="o" :span="20">
-        <el-card class="tiezi" shadow="hover" @click="jumpToAriticle">
+    <el-row style="width: 100%;">
+      <el-col v-for="(article, index) in articles" :span="20">
+        <el-card class="tiezi" shadow="hover" @click="jumpToAritical(article.aid)">
           <h3>我来夸他</h3>
           <div style="width: 185px;">
             <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
@@ -12,7 +12,7 @@
       </el-col>
     </el-row>
   </div>
-  <el-affix :offset="120" position="bottom" style="position: fixed; right: 10%;">
+  <el-affix :offset="60" position="bottom" style="position: absolute; right: 5%; bottom: 10%;">
     <div style="border-radius:30px;background-color: white; width: 60px; height: 60px;" @click="drawer = true">
       <svg t="1681884570963" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="2619" width="50" height="50" style="padding-left: 5px;padding-top: 5px;">
@@ -29,7 +29,7 @@
     <input style="width: 100%;height: 40px; margin-bottom: 10px; border-radius: 3px;" value=请键入标题>
     <div style="border: 1px solid #ccc">
       <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
-      <Editor style="height: 300px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
+      <Editor style="height: 250px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
         @onCreated="handleCreated" />
     </div>
     <el-button type="primary" style="float: right; margin-top: 10px;">发布</el-button>
@@ -38,11 +38,14 @@
 
 <script lang="ts" >
 import { ref } from 'vue'
-import { ElMessageBox } from 'element-plus'
+import axios from 'axios'
+import { reactive, toRefs } from "vue";
+
 import '@wangeditor/editor/dist/css/style.css'
 import { onBeforeUnmount, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import router from '../router/index.js'
+import type { Article } from '@/common'
 import { defineComponent } from 'vue'
 export default defineComponent({
   components: { Editor, Toolbar },
@@ -54,21 +57,42 @@ export default defineComponent({
     const valueHtml = ref('')
     const toolbarConfig = {}
     const editorConfig = { placeholder: '请输入内容...' }
+    const data = reactive({
+      articles: new Array<Article>
+    })
+    const jumpToAritical = (aid: number) => {
+      router.push({
+        path: '/mainpage/ReadArtical',
+        query: {
+          aid: aid
+        }
+      })
+    }
     onMounted(() => {
       setTimeout(() => {
         valueHtml.value = ''
       }, 1500)
+      axios.get("article/getArticlesByType?type=2")
+        .then((response) => {
+          for (let article of response.data) {
+            data.articles.push(article)
+          }
+          console.log(data.articles)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     })
     onBeforeUnmount(() => {
       const editor = editorRef.value
       if (editor == null) return
       editor.destroy()
     })
+    function publish() {
+      console.log(editorRef.value.getHtml());
+    }
     const handleCreated = (editor: any) => {
       editorRef.value = editor // 记录 editor 实例，重要！
-    }
-    const jumpToAriticle = () => {
-      router.push('/mainpage/ReadArtical')
     }
     return {
       drawer,
@@ -79,12 +103,12 @@ export default defineComponent({
       toolbarConfig,
       editorConfig,
       handleCreated,
-      jumpToAriticle,
-      currentDate
-
+      jumpToAritical,
+      publish,
+      currentDate,
+      ...toRefs(data),
     }
   }
-
 })
 
 </script>
@@ -107,10 +131,6 @@ export default defineComponent({
   height: 250px;
 }
 
-div>img {
-  width: 100%;
-  display: block;
-}
 
 #editor—wrapper {
   border: 1px solid #ccc;
@@ -122,5 +142,6 @@ div>img {
   border-bottom: 1px solid #ccc;
 }
 </style>
+
 
 <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
