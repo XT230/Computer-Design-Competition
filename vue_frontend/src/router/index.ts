@@ -51,7 +51,7 @@ const router = createRouter({
         { path: 'Recomend', component: Recomend },
         { path: 'UserInfo', component: UserInfo },
         { path: 'Favorites', component: Favorites },
-        { path: 'ReadArtical', component: ReadArtical },
+        { path: 'ReadArtical', name: 'readArtical', component: ReadArtical },
 
       ]
     }

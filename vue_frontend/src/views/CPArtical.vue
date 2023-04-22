@@ -20,29 +20,34 @@
   </div>
 </template>
   
-<script lang="js">
+<script lang="ts">
 import axios from 'axios'
 import { defineComponent, onBeforeMount, onMounted } from 'vue'
 import { reactive, toRefs } from "vue";
-axios.defaults.baseURL = 'http://114.116.22.152:8088/api/'
+import type { Article } from '@/common'
+import { httpURL } from '@/common'
+axios.defaults.baseURL = httpURL
 export default defineComponent({
   setup() {
     const title = "这是标题"
     const main_part = "这是正文"
     const author = "这是作者"
     const data = reactive({
-      articles: []
+      articles: new Array<Article>
     })
-    axios.get("article/getAll")
-      .then((response) => {
-        for (let article of response.data) {
-          data.articles.push(article)
-        }
-        console.log(data.articles)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    onMounted(() => {
+        axios.get("article/getArticlesByType?type=1")
+        .then((response) => {
+            for (let article of response.data) {
+            data.articles.push(article)
+            }
+            console.log(data.articles)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    })
+    
     return {
       title,
       main_part,

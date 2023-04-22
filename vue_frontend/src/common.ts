@@ -61,3 +61,29 @@ export function removeLocalStorage(key:any)
 {
 	localStorage.removeItem(key);
 }
+
+
+export class Article
+{
+    constructor(){
+        this._id = {timestamp: 0, date: ''}
+        this.aid = 0
+        this.uid = 0
+        this.title = ''
+        this.content = ''
+        this.type = 0
+        this.tags = []
+        this.timestamp = 0;
+    }
+    _id: { timestamp: number; date: string; };
+    aid: number;
+    uid: number;
+    title: string;
+    content: string;
+    type: number;
+    tags: string[];
+    timestamp: number;
+}
+
+// export const httpURL = 'http://localhost:8088/api/'
+export const httpURL = 'http://114.116.22.152:8088/api/'

@@ -1,17 +1,15 @@
 <template>
   <div id="big_box">
-    <el-row>
-      <el-col v-for="(o, index) in 11" :key="o" :span="20">
-        <el-card shadow="hover" @click="jumpToAritical">
-          <h3>标题🍉</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sapiente tempora architecto debitis dolores
-            deserunt, numquam tempore nam amet, aliquam recusandae tenetur consectetur. Explicabo autem dignissimos vitae
-            eos architecto nulla!</p>
+    <el-row style="width: 100%;">
+      <el-col v-for="(article, index) in articles" :span="20">
+        <el-card shadow="hover" @click="jumpToAritical(article.aid)">
+          <h3>{{ article.title }}</h3>
+          <div v-html="article.content"></div>
         </el-card>
       </el-col>
     </el-row>
   </div>
-  <el-affix :offset="120" position="bottom" style="position: fixed; right: 10%;">
+  <el-affix :offset="120" position="bottom" style="position: absolute; right: 5%; bottom: 10%;">
     <div style="border-radius:30px;background-color: white; width: 60px; height: 60px;" @click="drawer = true">
       <svg t="1681884570963" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="2619" width="50" height="50" style="padding-left: 5px;padding-top: 5px;">
@@ -35,6 +33,7 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios'
 import { ref } from 'vue'
 import { ElMessageBox } from 'element-plus'
 import '@wangeditor/editor/dist/css/style.css'
@@ -42,6 +41,10 @@ import { defineComponent } from 'vue'
 import { onBeforeUnmount, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import router from '../router/index.js'
+import { reactive, toRefs } from "vue";
+import type { Article } from '@/common'
+import { httpURL } from '@/common'
+axios.defaults.baseURL = httpURL;
 export default defineComponent({
   components: { Editor, Toolbar },
   setup() {
@@ -51,10 +54,23 @@ export default defineComponent({
     const valueHtml = ref('<p>hello</p>')
     const toolbarConfig = {}
     const editorConfig = { placeholder: '请输入内容...' }
+    const data = reactive({
+      articles: new Array<Article>
+    })
     onMounted(() => {
       setTimeout(() => {
         valueHtml.value = '请输入内容...'
       }, 1500)
+      axios.get("article/getArticlesByType?type=2")
+      .then((response) => {
+          for (let article of response.data) {
+            data.articles.push(article)
+          }
+          console.log(data.articles)
+      })
+      .catch((error) => {
+          console.log(error)
+      })
     })
     onBeforeUnmount(() => {
       const editor = editorRef.value
@@ -64,8 +80,13 @@ export default defineComponent({
     const handleCreated = (editor: any) => {
       editorRef.value = editor // 记录 editor 实例，重要！
     }
-    const jumpToAritical = () => {
-      router.push('/mainpage/ReadArtical')
+    const jumpToAritical = (aid : number) => {
+      router.push({
+        path: '/mainpage/ReadArtical',
+        query: {
+          aid: aid
+        }
+      })
     }
     function publish() {
       console.log(editorRef.value.getHtml());
@@ -80,7 +101,8 @@ export default defineComponent({
       editorConfig,
       handleCreated,
       jumpToAritical,
-      publish
+      publish,
+      ...toRefs(data)
     }
   }
 })
