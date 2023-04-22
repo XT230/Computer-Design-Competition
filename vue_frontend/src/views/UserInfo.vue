@@ -1,61 +1,18 @@
 <template>
-    <el-descriptions class="margin-top" title="我的信息" :column="1" size="large" border>
-        <el-descriptions-item>
-            <template #label>
-                <div class="cell-item">
-                    <el-icon :style="iconStyle">
-                        <user />
-                    </el-icon>
-                    昵称
-                </div>
-            </template>
-            {{ userID }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-            <template #label>
-                <div class="cell-item">
-                    <el-icon :style="iconStyle">
-                        <iphone />
-                    </el-icon>
-                    电话
-                </div>
-            </template>
-            {{ userPhone }}
-        </el-descriptions-item>
-
-        <el-descriptions-item>
-            <template #label>
-                <div class="cell-item">
-                    <el-icon :style="iconStyle">
-                        <tickets />
-                    </el-icon>
-                    学校
-                </div>
-            </template>
-            {{ userSchool }}
-        </el-descriptions-item>
-        <el-descriptions-item>
-            <template #label>
-                <div class="cell-item">
-                    <el-icon :style="iconStyle">
-                        <office-building />
-                    </el-icon>
-                    邮箱
-                </div>
-            </template>
-            {{ userMail }}
-        </el-descriptions-item><el-descriptions-item>
-            <template #label>
-                <div class="cell-item">
-                    <el-icon :style="iconStyle">
-                        <office-building />
-                    </el-icon>
-                    学历
-                </div>
-            </template>
-            <el-tag>{{userEdu}}</el-tag>
-        </el-descriptions-item>
-    </el-descriptions>
+    <div id="big_box">
+        <el-row justify="space-evenly" style="width: 100%; padding-top: 10px;">
+            <el-col span="3">
+                <el-avatar :size="150" :src="userAvatar"></el-avatar>
+            </el-col>
+            <el-col span="20">
+                <h1>{{ userID }}</h1>
+                <h3>{{ userSchool }}</h3>
+                <h3>{{ userEdu }}</h3>
+                <h3>{{ userPhone }}</h3>
+                <h3>{{ userMail }}</h3>
+            </el-col>
+        </el-row>
+    </div>
 </template>
 
 <script lang="ts">
@@ -107,16 +64,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.el-descriptions {
-    margin-top: 20px;
-}
-
-.cell-item {
+#big_box {
+    width: 70%;
+    height: 100%;
     display: flex;
+    background-color: white;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-.margin-top {
-    margin-top: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>

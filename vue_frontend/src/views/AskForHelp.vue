@@ -25,6 +25,7 @@
     </div>
   </el-affix>
   <el-drawer v-model="drawer" title="帖子发表" :direction="direction" size="70%">
+    <input style="width: 100%;height: 40px; margin-bottom: 10px; border-radius: 3px;" value=请键入标题>
     <div style="border: 1px solid #ccc">
       <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
       <Editor style="height: 300px; overflow-y: hidden;" :defaultConfig="editorConfig" :mode="mode"
@@ -48,12 +49,12 @@ export default defineComponent({
     const drawer = ref(false)
     const direction = ref('btt')
     const editorRef = shallowRef()
-    const valueHtml = ref('<p>hello</p>')
+    const valueHtml = ref('')
     const toolbarConfig = {}
     const editorConfig = { placeholder: '请输入内容...' }
     onMounted(() => {
       setTimeout(() => {
-        valueHtml.value = '请输入内容...'
+        valueHtml.value = ''
       }, 1500)
     })
     onBeforeUnmount(() => {
