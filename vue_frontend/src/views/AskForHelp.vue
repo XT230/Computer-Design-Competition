@@ -29,6 +29,14 @@
       <Editor style="height: 250px; overflow-y: hidden;" :defaultConfig="editorConfig" :mode="mode"
         @onCreated="handleCreated" />
     </div>
+    <div>
+      <span style="float: left; margin-top: 10px;color: black;">标签：</span>
+      <div v-for="tag in tags" style="float: left;margin-top: 10px;">
+        <el-checkbox-button style="margin-bottom: 10px;">
+          {{ tag }}
+        </el-checkbox-button>
+      </div>
+    </div>
     <el-button @click="publish" type="primary" style="float: right; margin-top: 10px;">发布</el-button>
   </el-drawer>
 </template>
@@ -54,6 +62,7 @@ export default defineComponent({
     const editorRef = shallowRef()
     const valueHtml = ref('')
     const toolbarConfig = {}
+    const tags = ['校园', '生活', '学习', '娱乐', '其他']
     const editorConfig = { placeholder: '请输入内容...' }
     const data = reactive({
       articles: new Array<Article>
@@ -103,7 +112,8 @@ export default defineComponent({
       handleCreated,
       jumpToAritical,
       publish,
-      ...toRefs(data)
+      ...toRefs(data),
+      tags
     }
   }
 })
