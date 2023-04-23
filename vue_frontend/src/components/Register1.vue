@@ -6,7 +6,7 @@
             <el-step title="完成" />
         </el-steps>
     </div>
-    <div style="width: 50vw;margin: 10px auto;">
+    <div style="width: 40vw;margin: 10px auto;">
         <el-card>
             <el-form ref=" ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm"
                 size=default status-icon>
