@@ -9,9 +9,8 @@
           </div>
           <div style="padding: 1px ">
             <span>{{ article.title }}</span>
-            <div class="bottom">
-            </div>
           </div>
+          <el-rate v-model="value" />
         </el-card>
       </el-col>
     </el-row>
@@ -68,7 +67,7 @@ export default defineComponent({
     const drawer = ref(false)
     const direction = ref('btt')
     const tags = ['校园', '生活', '学习', '娱乐', '其他']
-
+    const value = ref(4)
     const editorRef = shallowRef()
     const valueHtml = ref('')
     const toolbarConfig = {}
@@ -113,7 +112,8 @@ export default defineComponent({
       ...toRefs(data),
       jumpToAritical,
       handleCreated,
-      tags
+      tags,
+      value
     }
   }
 })
