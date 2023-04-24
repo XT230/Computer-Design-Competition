@@ -2,14 +2,17 @@
   <div id="big_box">
     <el-row style="width: 100%;">
       <el-col v-for="article in articles" :span="20">
-        <el-card id="wenzhang" @click="jumpToAritical(article.aid)">
-          <div style="height: 200px;">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image" style="height: 100%;" />
-          </div>
-          <div style="padding: 1px ">
-            <span>{{ article.title }}</span>
-          </div>
+        <el-card shadow="hover" @click="jumpToAritical(article.aid)">
+          <el-row style="width:100%;">
+            <el-col :span="2">
+              <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
+                style="height: 30px;" />
+            </el-col>
+            <el-col :span="20">
+              <h3>{{ article.title }}</h3>
+            </el-col>
+          </el-row>
+          <div v-html="article.content"></div>
           <el-rate v-model="value" />
         </el-card>
       </el-col>

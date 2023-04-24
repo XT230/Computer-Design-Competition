@@ -1,13 +1,17 @@
 <template>
     <div id="big_box">
-        <div id="title" style="width: 70%; text-align: left;">
+        <div id="title" style="width: 70%; text-align: center;">
             <p style="font-size: 40px;">{{ article.title }}</p>
-            <div style="padding-top: 5px">
-                <div>
-                </div>
-                <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
-                    style="height: 60px; float: left;" />
-                <p style=" float: left;">{{ authorName }}</p>
+            <div style="padding-top: 5px;width: 200px; margin: 10px auto; text-align: center;">
+                <el-row style="width:100%;">
+                    <el-col :span="24">
+                        <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
+                            style="height: 60px;" />
+                    </el-col>
+                    <el-col :span="24">
+                        <p style=" ">{{ authorName }}</p>
+                    </el-col>
+                </el-row>
             </div>
         </div>
         <hr style="width: 90%; margin-top: 10px; margin-bottom: 20px; border: 1px solid rgb(226 226 226); " />
