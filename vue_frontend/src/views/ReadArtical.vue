@@ -1,16 +1,19 @@
 <template>
     <div id="big_box">
-        <div id="title" style="width: 100%; text-align: center;">
+        <div id="title" style="width: 70%; text-align: left;">
+            <p style="font-size: 40px;">{{ article.title }}</p>
             <div style="padding-top: 5px">
+                <div>
+                </div>
                 <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
-                    style="height: 50px; " />
+                    style="height: 60px; float: left;" />
+                <p style=" float: left;">{{ authorName }}</p>
             </div>
-            <h1>{{ article.title }}</h1>
-            <h6>{{ authorName }}</h6>
         </div>
+        <hr style="width: 90%; margin-top: 10px; margin-bottom: 20px; border: 1px solid rgb(226 226 226); " />
         <div>
             <!-- <div id="main_part" v-html="article.content"> -->
-            <div id="main_part" style="padding: 10px 10px;">
+            <div id="main_part" style="padding: 10px 100px;font-size: large; line-height: 2em;">
                 想闻晚晚放的屁。
                 晚晚羞红了脸，试图让气体出来的慢一点。然而肉肉的大腿和鼙鼓与晚晚坐的椅子紧紧地贴合在一起，尽管已经努力控制，依然发出了尴尬的声音。我就蹲在椅背后面，尽情地享受晚晚的气味。我将所有气体吸入肺中，又一点点呼出，感受着晚晚的气味反复鸿儒我的鼻腔。
                 快端午节啦，在家休息的晚晚叫我陪她一起做粽子。第一步当然是准备糯米了，我说：“晚晚，咱们家没有糯米了怎么办呀。”晚晚歪在沙发上对我吼到：“超市里扫货！”
