@@ -1,33 +1,38 @@
 <template>
-    <div style="padding-left: 20px;padding-right: 20px; padding-top: 20px;">
-        <el-row style="margin-bottom: 10px;">
-            <el-col :span="4">
-                <div>
-                    <img :src="userAvatar" class="image" style="width: 150px;" />
+    <div id="big_box" style="text-align: center;">
+        <el-row style="width: 60%; padding-top: 10px;">
+            <el-col span="8">
+                <el-avatar :size="150" :src="userAvatar"></el-avatar>
+            </el-col>
+            <el-col span="16">
+                <h1 style="padding:70px 20px;">{{ userID }}</h1>
+            </el-col>
+        </el-row>
+        <el-row justify="space-evenly" style="width: 100%;">
+            <el-col span="3" style="width: 30%;border-radius: 10px;">
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;text-align: center;">
+                    <h1 style="padding:40px 0;">积分</h1>
                 </div>
             </el-col>
-            <el-col :span="16">
-                <div style="color: white;">
-                    <h3>{{ userID }}</h3>
-                    <p>学校：{{ userSchool }}</p>
-                    <p>学历：{{ userEdu }}</p>
+            <el-col span="3" style="width: 30%;">
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;text-align: center;">
+                    <h1 style="padding:40px 0;">大学</h1>
                 </div>
             </el-col>
         </el-row>
-        <hr>
-        <div id="big_box">
-            <el-row>
-                <el-col v-for="(o, index) in 10" :key="o" :span="20">
-                    <el-card class="tiezi" shadow="hover">
-                        <h3>帖子</h3>
-                        <div style="width: 185px;">
-                            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                                class="image" />
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
-        </div>
+    </div>
+    <div id="big_box2" style="text-align: center;">
+        <el-row style="width:100%" justify="center">
+            <el-col v-for="(o, index) in 10" :key="o" :span="24">
+                <el-card class="tiezi" shadow="hover">
+                    <h3>帖子</h3>
+                    <div style="width: 185px;">
+                        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                            class="image" />
+                    </div>
+                </el-card>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
@@ -52,9 +57,13 @@ export default defineComponent({
     width: 70%;
     height: 100%;
     display: flex;
+    background-color: white;
+    color: black;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -66,7 +75,21 @@ export default defineComponent({
 }
 
 div>img {
-  width: 100%;
-  display: block;
+    width: 100%;
+    display: block;
+}
+
+#big_box2 {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>

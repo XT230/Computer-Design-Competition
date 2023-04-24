@@ -69,6 +69,35 @@
             </div>
         </div>
     </div>
+    <div id="big_box2" style="text-align:center;">
+        <div style="text-align: left; margin-left: 10px;">
+            <p style="font-size: 20px;">评论</p>
+        </div>
+
+        <hr style="width: 90%; margin: 20px 20px; border: 1px solid rgb(226 226 226); " />
+        <el-row style="width:100%" justify="center">
+            <el-col v-for="(o, index) in 10" :key="o" :span="22">
+                <el-row style="width: 100%;">
+                    <el-col :span="2">
+                        <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
+                            style="height: 40px; float: left;" />
+                    </el-col>
+                    <el-col :span="21">
+                        <p style="font-size: 18px;float: left;">用户名</p>
+                    </el-col>
+                    <p style="margin-left: 60px; padding-right: 60px;text-align:left;">
+                        向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强向晚最强
+                    </p>
+                </el-row>
+                <hr style="width: 90%; margin-top: 10px; margin-bottom: 20px; border: 1px solid rgb(226 226 226); " />
+            </el-col>
+        </el-row>
+        <div style="display:flex; justify-content:center; align-items:center;margin-bottom: 50px;">
+            <el-input v-model="textarea1" autosize type="textarea" placeholder="发表你的评论" style="width: 70%;" />
+            <el-button type="primary" style="float: right; margin-right: 20px; width: 60px;">提交</el-button>
+        </div>
+
+    </div>
 </template>
 
 <script lang="ts">
@@ -78,6 +107,7 @@ import { useRoute } from 'vue-router'
 import { httpURL } from '@/common'
 import { reactive, toRefs } from "vue";
 import { Article } from '@/common'
+import { ref } from 'vue'
 axios.defaults.baseURL = httpURL
 export default defineComponent({
     setup() {
@@ -89,6 +119,7 @@ export default defineComponent({
             article: new Article(),
             authorName: ''
         })
+        const textarea1 = ref('')
         axios.get("article/getArticleByAid?aid=" + route.query.aid)
             .then((response) => {
                 data.article = response.data
@@ -107,6 +138,7 @@ export default defineComponent({
             title,
             main_part,
             author,
+            textarea1,
             ...toRefs(data)
         }
     }
@@ -127,5 +159,18 @@ export default defineComponent({
     color: black;
     border-radius: 10px;
     margin-top: 5px;
+}
+
+#big_box2 {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    background-color: white;
+    color: black;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>

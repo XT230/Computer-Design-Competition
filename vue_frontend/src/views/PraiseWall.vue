@@ -27,9 +27,9 @@
   </el-affix>
   <el-drawer v-model="drawer" title="帖子发表" :direction="direction" size="70%">
     <input style="width: 100%;height: 40px; margin-bottom: 10px; border-radius: 3px;" value=请键入标题>
-    <div style="border: 1px solid #ccc">
+    <div style="border: 1px solid #ccc;height: 70%;">
       <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
-      <Editor style="height: 250px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
+      <Editor style="height: 80%; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
         @onCreated="handleCreated" />
     </div>
     <div>

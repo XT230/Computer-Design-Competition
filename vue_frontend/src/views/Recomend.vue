@@ -21,7 +21,7 @@
         </el-card>
       </el-col>
           </el-row> -->
-    <div id="recomend_artical_box">
+    <div id="recomend_artical_box" style="text-align: center;">
       <el-card v-for="item in 40" :key="item" id="tuijianwenzhang" @click="jumpToAriticle">
         <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
           class="image" style="width: 100%;" />

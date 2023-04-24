@@ -1,30 +1,42 @@
 <template>
-    <div id="big_box">
-        <el-row justify="space-evenly" style="width: 100%; padding-top: 10px;">
-            <el-col span="3">
+    <div id="big_box" style="text-align: center;">
+        <el-row style="width: 60%; padding-top: 10px;">
+            <el-col span="8">
                 <el-avatar :size="150" :src="userAvatar"></el-avatar>
             </el-col>
-            <el-col span="3">
-                <h1 style="padding:70px 0;">{{ userID }}</h1>
+            <el-col span="16">
+                <h1 style="padding:70px 20px;">{{ userID }}</h1>
             </el-col>
         </el-row>
         <el-row justify="space-evenly" style="width: 100%;">
             <el-col span="3" style="width: 30%;border-radius: 10px;">
-                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;">
-
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;text-align: center;">
                     <h1 style="padding:40px 0;">积分</h1>
                 </div>
             </el-col>
             <el-col span="3" style="width: 30%;">
-                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;">
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;text-align: center;">
                     <h1 style="padding:40px 0;">大学</h1>
                 </div>
             </el-col>
             <el-col span="3" style="width: 30%;">
-                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;">
+                <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;text-align: center;">
                     <h1 style="padding:40px 0;">我的消息</h1>
 
                 </div>
+            </el-col>
+        </el-row>
+    </div>
+    <div id="big_box2" style="text-align: center;">
+        <el-row style="width:100%" justify="center">
+            <el-col v-for="(o, index) in 10" :key="o" :span="24">
+                <el-card class="tiezi" shadow="hover">
+                    <h3>帖子</h3>
+                    <div style="width: 185px;">
+                        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                            class="image" />
+                    </div>
+                </el-card>
             </el-col>
         </el-row>
     </div>
@@ -92,5 +104,30 @@ export default defineComponent({
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#big_box2 {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div>img {
+    width: 100%;
+    display: block;
+}
+
+.tiezi {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 250px;
 }
 </style>
