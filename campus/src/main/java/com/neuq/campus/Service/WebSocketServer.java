@@ -49,7 +49,7 @@ public class WebSocketServer
         RestTemplate restTemplate = new RestTemplate();
         System.out.println(message + ":" + uid);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Bearer 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");
+        headers.add("Authorization", "Bearer opaikey");
         headers.add("Content-Type", "application/json");
         try
         {
