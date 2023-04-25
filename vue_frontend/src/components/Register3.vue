@@ -10,7 +10,7 @@
         <el-card>
             <el-result icon="success" title="您已经成功注册" sub-title="请单击下方按钮登录">
                 <template #extra>
-                    <el-button type="primary">去登录</el-button>
+                    <el-button type="primary" @click="toLogin">去登录</el-button>
                 </template>
             </el-result>
         </el-card>
@@ -26,8 +26,12 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     setup() {
+        function toLogin()
+        {
+            router.push("/")
+        }
         return {
-
+            toLogin
         }
     }
 })

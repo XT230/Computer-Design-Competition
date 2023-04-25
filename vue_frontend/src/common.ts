@@ -85,5 +85,35 @@ export class Article
     timestamp: number;
 }
 
-// export const httpURL = 'http://localhost:8088/api/'
-export const httpURL = 'http://114.116.22.152:8088/api/'
+export class School
+{
+    constructor(){
+        this.value = 0;
+        this.label = '';
+    }
+    value: number;
+    label: string;
+}
+
+export class Tag 
+{
+    constructor(){
+        this.tname = ''
+        this.isSelected = false
+    }
+    tname: string;
+    isSelected: boolean;
+}
+
+export class Conversation
+{
+    constructor(){
+        this.user = ''
+        this.ai = ''
+    }
+    user: string;
+    ai: string;
+}
+
+export const httpURL = 'http://localhost:8088/api/'
+// export const httpURL = 'http://114.116.22.152:8088/api/'

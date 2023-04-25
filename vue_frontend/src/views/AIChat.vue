@@ -29,23 +29,25 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import axios from "axios";
 import { reactive, toRefs } from "vue";
+import { Conversation } from  '@/common'
+import { getSessionStorage } from "@/common";
 export default {
+    
     setup() {
-        const data = reactive({
-            message: '',
-            conversation: [
-
-            ],
-            postData: {
+        var ws = new WebSocket("ws://localhost:8088/api/websocket/" + getSessionStorage("user").uid)
+        var postData = {
                 "model": "gpt-3.5-turbo",
                 "messages": [
                     { "role": "system", "content": "你是一个心理咨询老师" },
                     // {"role": "user", "content": "你好"}
                 ]
-            },
+            }
+        const data = reactive({
+            message: '',
+            conversation: new Array<Conversation>(),
             config: {
                 headers: {
                     ///////
@@ -53,35 +55,45 @@ export default {
                 }
             }
         });
-
-        function handleKeyCode(event) {
+        function handleKeyCode(event: KeyboardEvent) {
             if (event.keyCode == 13) {
                 if (!event.metaKey) {
                     event.preventDefault();
                     data.conversation.push({ user: data.message, ai: '' });
-                    data.postData.messages.push({
+                    postData.messages.push({
                         "role": "user",
                         "content": data.message
                     })
-                    // alert(data.message);
-                    axios.post("https://api.openai.com/v1/chat/completions", data.postData, data.config)
-                        .then(response => {
-                            let re = response.data;
-                            let index = data.conversation.length - 1;
-                            data.conversation[index].ai = re["choices"][0]["message"]["content"];
-                            data.postData.messages.push({
-                                "role": "assistant",
-                                "content": re["choices"][0]["message"]["content"]
-                            })
-                        })
-                        .catch(err => {
-                            // alert("here");
-                            console.log(err);
-                        })
+                    // // alert(data.message);
+                    // axios.post("https://api.openai.com/v1/chat/completions", data.postData, data.config)
+                    //     .then(response => {
+                    //         let re = response.data;
+                    //         let index = data.conversation.length - 1;
+                    //         data.conversation[index].ai = re["choices"][0]["message"]["content"];
+                    //         data.postData.messages.push({
+                    //             "role": "assistant",
+                    //             "content": re["choices"][0]["message"]["content"]
+                    //         })
+                    //     })
+                    //     .catch(err => {
+                    //         // alert("here");
+                    //         console.log(err);
+                    //     })
+                    let submitStr = JSON.stringify(postData);
+                    ws.send(submitStr);
                     data.message = '';
                 }
             }
         }
+        ws.onmessage = (message) => {
+            // message.data
+            let message1 = JSON.parse(message.data)
+            let index = data.conversation.length - 1;
+            data.conversation[index].ai = message1.content;
+            postData.messages.push(message1)
+        }
+
+        // ws.onclose = 
 
         return {
             ...toRefs(data),
