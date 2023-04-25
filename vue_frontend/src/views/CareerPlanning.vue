@@ -7,18 +7,13 @@
     <div
       style="color: black; padding-bottom: 5px; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);"
       id="select">
-      筛选：
-      <el-select v-model="value1" class="m-2" placeholder="Select">
-        <el-option v-for="item in options1" :key="item.value" :label="item.label" :value="item.value" />
-      </el-select>
-      筛选：
-      <el-select v-model="value2" class="m-2" placeholder="Select">
-        <el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value" />
-      </el-select>
-      筛选：
-      <el-select v-model="value3" class="m-2" placeholder="Select">
-        <el-option v-for="item in options3" :key="item.value" :label="item.label" :value="item.value" />
-      </el-select>
+      <el-input v-model="input" placeholder="Please input" class="input-with-select" style="width: 40%;">
+        <template #prepend>
+          <el-button :icon="Search" />
+        </template>
+      </el-input>
+      <el-cascader v-model="value" :options="options" :props="props" @change="handleChange" />
+
     </div>
 
   </div>
@@ -33,48 +28,142 @@
 <script lang="ts" >
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import { Search } from '@element-plus/icons-vue'
 import { defineComponent } from 'vue'
 import router from '../router/index.js'
 import Vue from 'vue'
 export default defineComponent({
-  data() {
-    return {
-      value1: '',
-      options1: [{
-        value: 'op1',
-        label: '高中'
-      }, {
-        value: 'op2',
-        label: '大学'
-      }, {
-        value: 'op3',
-        label: '硕士'
-      }],
-      value2: '',
-      options2: [{
-        value: 'op1',
-        label: '高中'
-      }, {
-        value: 'op2',
-        label: '大学'
-      }, {
-        value: 'op3',
-        label: '硕士'
-      }]
-      ,
-      value3: '',
-      options3: [{
-        value: 'op1',
-        label: '高中'
-      }, {
-        value: 'op2',
-        label: '大学'
-      }, {
-        value: 'op3',
-        label: '硕士'
-      }]
+  setup() {
+    const value = ref('')
+    const input = ref('')
+    const props = {
+      expandTrigger: 'hover' as const,
     }
-  },
+    const handleChange = (value: any) => {
+      console.log(value)
+    }
+    const options = [
+      {
+        value: '人际交往',
+        label: '人际交往',
+      },
+      {
+        value: '学业压力',
+        label: '学业压力',
+        children: [
+          {
+            value: '高中',
+            label: '高中',
+            children: [
+              {
+                value: '语文',
+                label: '语文',
+              },
+              {
+                value: '数学',
+                label: '数学',
+              },
+              {
+                value: '英语',
+                label: '英语',
+              },
+              {
+                value: '物理',
+                label: '物理',
+              },
+              {
+                value: '化学',
+                label: '化学',
+              },
+              {
+                value: '地理',
+                label: '地理',
+              },
+              {
+                value: '生物',
+                label: '生物',
+              }, {
+                value: '历史',
+                label: '历史',
+              },
+              {
+                value: '政治',
+                label: '政治',
+              },
+            ],
+          },
+          {
+            value: '初中',
+            label: '初中',
+            children: [
+              {
+                value: '语文',
+                label: '语文',
+              },
+              {
+                value: '数学',
+                label: '数学',
+              },
+              {
+                value: '英语',
+                label: '英语',
+              },
+              {
+                value: '物理',
+                label: '物理',
+              },
+              {
+                value: '化学',
+                label: '化学',
+              },
+              {
+                value: '地理',
+                label: '地理',
+              },
+              {
+                value: '生物',
+                label: '生物',
+              }, {
+                value: '历史',
+                label: '历史',
+              },
+              {
+                value: '政治',
+                label: '政治',
+              },
+            ],
+          },
+          {
+            value: '小学',
+            label: '小学',
+            children: [
+              {
+                value: '语文',
+                label: '语文',
+              },
+              {
+                value: '数学',
+                label: '数学',
+              },
+              {
+                value: '英语',
+                label: '英语',
+              },
+            ],
+          },
+        ],
+      },
+
+    ]
+    return {
+      options,
+      props,
+      value,
+      handleChange,
+      Search,
+      input,
+    }
+  }
 })
 </script>
 
@@ -89,5 +178,14 @@ export default defineComponent({
 
 .el-menu--popup {
   padding: 0px;
+}
+
+.input-with-select .el-input-group__prepend {
+  background-color: var(--el-fill-color-blank);
+}
+
+.input-with-select .el-input-group__append {
+  background-color: var(--el-fill-color-blank);
+  padding: 0 0;
 }
 </style>

@@ -13,7 +13,8 @@
     </el-row>
   </div>
   <el-affix :offset="60" position="bottom" style="position: absolute; right: 5%; bottom: 10%;">
-    <div style="border-radius:30px;background-color: white; width: 60px; height: 60px;" @click="drawer = true">
+    <div style="border-radius:30px;background-color: white; width: 60px; height: 60px;"
+      @click="dialogTableVisible = true">
       <svg t="1681884570963" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="2619" width="50" height="50" style="padding-left: 5px;padding-top: 5px;">
         <path
@@ -25,23 +26,16 @@
       </svg>
     </div>
   </el-affix>
-  <el-drawer v-model="drawer" title="帖子发表" :direction="direction" size="70%">
-    <input style="width: 100%;height: 40px; margin-bottom: 10px; border-radius: 3px;" value=请键入标题>
-    <div style="border: 1px solid #ccc;height: 70%;">
-      <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
-      <Editor style="height: 80%; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
-        @onCreated="handleCreated" />
+  <el-dialog v-model="dialogTableVisible" title="发表帖子" width="30vw">
+    <div style="display:flex; justify-content:center; align-items:center;margin-bottom: 10px;">
+      <el-input v-model="textarea1" :autosize="{ minRows: 5, maxRows: 20 }" type="textarea" placeholder="发表你的评论"
+        style="width: 90%;" />
     </div>
-    <div>
-      <span style="float: left; margin-top: 10px;color: black;">标签：</span>
-      <div v-for="tag in tags" style="float: left;margin-top: 10px;">
-        <el-checkbox-button style="margin-bottom: 10px;">
-          {{ tag }}
-        </el-checkbox-button>
-      </div>
+    <div style="height: 50px;">
+      <el-button type="primary" style="float: right; width: 60px; margin-bottom: 20px"
+        @click="() => { dialogTableVisible = false }">提交</el-button>
     </div>
-    <el-button type="primary" style="float: right; margin-top: 10px;">发布</el-button>
-  </el-drawer>
+  </el-dialog>
 </template>
 
 <script lang="ts" >
@@ -51,21 +45,13 @@ import { reactive, toRefs } from "vue";
 
 import '@wangeditor/editor/dist/css/style.css'
 import { onBeforeUnmount, shallowRef, onMounted } from 'vue'
-import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import router from '../router/index.js'
 import type { Article } from '@/common'
 import { defineComponent } from 'vue'
 export default defineComponent({
-  components: { Editor, Toolbar },
   setup() {
-    const currentDate = ref(new Date())
-    const drawer = ref(false)
-    const direction = ref('btt')
-    const editorRef = shallowRef()
-    const valueHtml = ref('')
-    const toolbarConfig = {}
-    const tags = ['校园', '生活', '学习', '娱乐', '其他']
-    const editorConfig = { placeholder: '请输入内容...' }
+    const dialogTableVisible = ref(false);
+    const textarea1 = ref('');
     const data = reactive({
       articles: new Array<Article>
     })
@@ -79,7 +65,6 @@ export default defineComponent({
     }
     onMounted(() => {
       setTimeout(() => {
-        valueHtml.value = ''
       }, 1500)
       axios.get("article/getArticlesByType?type=2")
         .then((response) => {
@@ -92,31 +77,11 @@ export default defineComponent({
           console.log(error)
         })
     })
-    onBeforeUnmount(() => {
-      const editor = editorRef.value
-      if (editor == null) return
-      editor.destroy()
-    })
-    function publish() {
-      console.log(editorRef.value.getHtml());
-    }
-    const handleCreated = (editor: any) => {
-      editorRef.value = editor // 记录 editor 实例，重要！
-    }
     return {
-      drawer,
-      mode: 'default',
-      direction,
-      editorRef,
-      valueHtml,
-      toolbarConfig,
-      editorConfig,
-      handleCreated,
       jumpToAritical,
-      publish,
-      currentDate,
       ...toRefs(data),
-      tags
+      dialogTableVisible,
+      textarea1
     }
   }
 })

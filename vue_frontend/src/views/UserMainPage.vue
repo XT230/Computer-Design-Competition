@@ -54,7 +54,7 @@ export default defineComponent({
 
 <style scoped>
 #big_box {
-    width: 70%;
+    width: 50%;
     height: 100%;
     display: flex;
     background-color: white;
@@ -80,7 +80,7 @@ div>img {
 }
 
 #big_box2 {
-    width: 70%;
+    width: 50%;
     height: 100%;
     display: flex;
     color: black;
