@@ -4,7 +4,9 @@
       <el-menu-item index="/mainpage/CareerPlanning/CPArtical">推荐文章</el-menu-item>
       <el-menu-item index="/mainpage/CareerPlanning/CPUser">推荐答主</el-menu-item>
     </el-menu>
-    <div style="color: black; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);" id="select">
+    <div
+      style="color: black; padding-bottom: 5px; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);"
+      id="select">
       筛选：
       <el-select v-model="value1" class="m-2" placeholder="Select">
         <el-option v-for="item in options1" :key="item.value" :label="item.label" :value="item.value" />

@@ -11,12 +11,12 @@
         <el-row justify="space-evenly" style="width: 100%;">
             <el-col span="3" style="width: 30%;border-radius: 10px;">
                 <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;text-align: center;">
-                    <h1 style="padding:40px 0;">积分</h1>
+                    <h1 style="padding:40px 0;"><img src="../assets/credit-level.svg" style="width:2em" />积分:</h1>
                 </div>
             </el-col>
             <el-col span="3" style="width: 30%;">
                 <div style="background-color: rgb(240,240,240);border-radius: 10px;margin-bottom: 10px;text-align: center;">
-                    <h1 style="padding:40px 0;">大学</h1>
+                    <h1 style="padding:40px 0;"><img src="../assets/school.svg" style="width:2em" />大学:</h1>
                 </div>
             </el-col>
         </el-row>

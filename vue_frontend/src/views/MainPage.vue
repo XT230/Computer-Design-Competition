@@ -29,17 +29,13 @@
             background-color="rgba(255, 255, 255, 0)">
             <el-menu-item index="/mainpage/Recomend">
               <template #title>
-                <el-icon>
-                  <!-- <location /> -->
-                </el-icon>
+                <img src="../assets/home.svg" style="width:1.7em" />
                 <span>首页</span>
               </template>
             </el-menu-item>
             <el-sub-menu index="2">
               <template #title>
-                <el-icon>
-                  <!-- <location /> -->
-                </el-icon>
+                <img src="../assets/communicate.svg" style="width:1.5em" />
                 <span>交往难题</span>
               </template>
               <el-menu-item-group title="解决校园霸凌">
@@ -53,9 +49,7 @@
             </el-sub-menu>
             <el-sub-menu index="3">
               <template #title>
-                <el-icon>
-                  <!-- <location /> -->
-                </el-icon>
+                <img src="../assets/study.svg" style="width:1.7em" />
                 <span>学业谜思</span>
               </template>
               <el-menu-item index="/mainpage/CareerPlanning" @click.native="jumpToAriticle()">规划答疑</el-menu-item>

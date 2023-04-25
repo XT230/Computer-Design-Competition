@@ -11,10 +11,12 @@
                     <h2>账号登录</h2>
                     <form>
                         <div class="inputBox">
+                            <img src="../assets/username.svg" style="width:1.5em;margin-left: 8px;" />
                             <i class="fa fa-user-o"></i>
                             <input type="text" v-model="user.username" placeholder="用户名">
                         </div>
                         <div class="inputBox">
+                            <img src="../assets/password.svg" style="width:1.5em;margin-left: 8px;" />
                             <i class="fa fa-lock"></i>
                             <input type="password" v-model="user.password" placeholder="密码">
                         </div>
@@ -62,23 +64,19 @@ export default
                         let user = response.data;
                         if (user != '') {
                             axios.get("user/getSnameBySid?sid=" + user.sid)
-                                .then((response) => 
-                                {
-                                    user.sname = response.data.sname; 
+                                .then((response) => {
+                                    user.sname = response.data.sname;
                                     setSessionStorage('user', user);
                                 })
-                                .catch((error) => 
-                                {
+                                .catch((error) => {
                                     console.log(error);
                                 })
                             axios.get("user/getDnameByDid?did=" + user.did)
-                                .then((response) => 
-                                {
-                                    user.dname = response.data.dname; 
+                                .then((response) => {
+                                    user.dname = response.data.dname;
                                     setSessionStorage('user', user);
                                 })
-                                .catch((error) => 
-                                {
+                                .catch((error) => {
                                     console.log(error);
                                 })
                             setSessionStorage('user', user);
