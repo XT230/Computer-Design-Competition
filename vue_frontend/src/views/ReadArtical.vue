@@ -5,8 +5,7 @@
             <div style="padding-top: 5px;width: 200px; margin: 10px auto; text-align: center;">
                 <el-row style="width:100%;">
                     <el-col :span="24">
-                        <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
-                            style="height: 60px;" />
+                        <img src="../tmp/头像.jpeg" class="image" style="height: 60px;border-radius: 50%; " />
                     </el-col>
                     <el-col :span="24">
                         <p style=" ">{{ authorName }}</p>
@@ -79,8 +78,7 @@
             <el-col v-for="(o, index) in 10" :key="o" :span="22">
                 <el-row style="width: 100%;">
                     <el-col :span="2">
-                        <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
-                            style="height: 40px; float: left;" />
+                        <img src="../tmp/头像.jpeg" class="image" style="height: 40px; float: left;border-radius: 50%;" />
                     </el-col>
                     <el-col :span="21">
                         <p style="font-size: 18px;float: left;">用户名</p>

@@ -6,7 +6,7 @@
       <el-menu-item index="/mainpage/CareerPlanning/CPUser">推荐答主</el-menu-item>
     </el-menu>
     <div
-      style="color: black; padding-bottom: 5px; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);border-radius:0 0 0 20px;padding-left: 10px;"
+      style="color: black; padding-bottom: 5px; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);border-radius:0 0 0 20px;padding-left: 20px; "
       id="select">
       <el-input v-model="input" placeholder="Please input" class="input-with-select" style="width: 40%;">
         <template #prepend>
@@ -14,12 +14,11 @@
         </template>
       </el-input>
       <el-cascader v-model="value" :options="options" :props="props" @change="handleChange" />
-
     </div>
-
   </div>
   <div style="padding-left: 20px;padding-right: 20px;">
-    <el-scrollbar style="height: calc(100vh - 117.6px - 32px);">
+    <!-- <el-scrollbar style="height: calc(100vh - 117.6px - 32px );"> -->
+    <el-scrollbar style="height: calc(100vh - 80px - 57.6px - 37px );">
       <RouterView />
     </el-scrollbar>
 

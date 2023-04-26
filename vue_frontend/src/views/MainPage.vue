@@ -3,12 +3,13 @@
     <el-container direction="vertical">
       <el-header>
         <h2 id="website_title">心理健康服务平台</h2>
+        <span id="website_title2">为青少年的心理健康保驾护航</span>
         <div id="user_info">
           <el-dropdown>
             <span class="el-dropdown-link">
               <h3>{{ userID }}</h3>
               <div id="user_avatar">
-                <el-avatar :size="50" :src="userAvatar" />
+                <img src="../tmp/头像.jpeg" class="image" style="height: 50px; border-radius: 50%;">
               </div>
             </span>
             <template #dropdown>
@@ -24,7 +25,8 @@
       </el-header>
 
       <el-container id="down_box">
-        <el-aside width="200px" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 20px; margin:0px 10px;">
+        <el-aside width="200px"
+          style="background-color: rgba(255, 255, 255, 0.5); border-radius: 20px; margin-bottom: 20px;margin-left: 10px;margin-right: 10px;">
           <el-menu default-active="/mainpage/Recomend" class="el-menu-vertical-demo" ref="menu" router
             background-color="rgba(255, 255, 255, 0)">
             <el-menu-item index="/mainpage/Recomend">
@@ -127,17 +129,20 @@ body {
 
 
 .el-header {
-  background-image: linear-gradient(90deg, #37a9f9 18%, #7340f9 80%);
+  background-image: linear-gradient(90deg, #37a8f9 18%, #7440f9 80%);
   color: #333;
   line-height: 60px;
   border-radius: 20px;
   margin: 10px 10px;
+  text-align: center;
 }
 
 .el-main {
-  background-color: #f2f2f200;
+  background-color: #ffffff37;
   color: #ffffff00;
+  margin: 0px 10px 0px 0px;
   padding: 0px;
+  border-radius: 20px 20px 0 0
 }
 
 .el-dropdown-link {
@@ -145,6 +150,7 @@ body {
   color: #fff;
   display: flex;
   align-items: center;
+
 }
 
 .el-dropdown {
@@ -157,6 +163,13 @@ body {
   font-weight: 700;
   color: #fff;
   float: left;
+}
+
+#website_title2 {
+  padding-left: 0px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffffa8;
 }
 
 #down_box {

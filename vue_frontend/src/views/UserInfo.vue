@@ -2,7 +2,7 @@
     <div id="big_box" style="text-align: center; border-radius: 20px;">
         <el-row style="width: 60%; padding-top: 10px;">
             <el-col span="8">
-                <el-avatar :size="150" :src="userAvatar"></el-avatar>
+                <img src="../tmp/头像.jpeg" class="image" style="height: 150px; border-radius: 50%;">
             </el-col>
             <el-col span="16">
                 <h1 style="padding:70px 20px;">{{ userID }}</h1>
@@ -14,7 +14,7 @@
                     <div style="padding:30px 0;">
                         <p>
                             <img src="../assets/credit-level.svg" style="width:2em ;" />
-                        <h1>积分:</h1>
+                        <h1>积分:78</h1>
                         </p>
 
                     </div>
@@ -24,8 +24,8 @@
                 <div style="background-color: rgb(245,245,245);border-radius: 10px;margin-bottom: 10px;text-align: center;">
                     <div style="padding:30px 0;">
                         <p>
-                            <img src="../assets/credit-level.svg" style="width:2em ;" />
-                        <h1>学校:</h1>
+                            <img src="../assets/school.svg" style="width:2em ;" />
+                        <h1>学校:东北大学秦皇岛分校</h1>
                         </p>
 
                     </div>
@@ -35,8 +35,8 @@
                 <div style="background-color: rgb(245,245,245);border-radius: 10px;margin-bottom: 10px;text-align: center;">
                     <div style="padding:30px 0;">
                         <p>
-                            <img src="../assets/credit-level.svg" style="width:2em ;" />
-                        <h1>消息:</h1>
+                            <img src="../assets/message.svg" style="width:2em ;" />
+                        <h1>消息:1</h1>
                         </p>
 
                     </div>
