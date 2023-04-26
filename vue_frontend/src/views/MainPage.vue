@@ -117,7 +117,6 @@ body {
 
 #user_avatar {
   padding-left: 5px;
-
 }
 
 #homepage_box {
