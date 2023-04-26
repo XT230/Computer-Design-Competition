@@ -1,5 +1,5 @@
 <template>
-    <div id="big_box" style="text-align: center;">
+    <div id="big_box" style="text-align: center;border-radius: 20px;">
         <el-row style="width: 60%; padding-top: 10px;">
             <el-col span="8">
                 <el-avatar :size="150" :src="userAvatar"></el-avatar>
@@ -24,7 +24,7 @@
     <div id="big_box2" style="text-align: center;">
         <el-row style="width:100%" justify="center">
             <el-col v-for="(o, index) in 10" :key="o" :span="24">
-                <el-card class="tiezi" shadow="hover">
+                <el-card class="tiezi" shadow="hover" style="border-radius: 20px;">
                     <h3>帖子</h3>
                     <div style="width: 185px;">
                         <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"

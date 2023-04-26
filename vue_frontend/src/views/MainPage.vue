@@ -24,7 +24,7 @@
       </el-header>
 
       <el-container id="down_box">
-        <el-aside width="200px" style="background-color: rgba(255, 255, 255, 0.5);">
+        <el-aside width="200px" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 20px; margin:0px 10px;">
           <el-menu default-active="/mainpage/Recomend" class="el-menu-vertical-demo" ref="menu" router
             background-color="rgba(255, 255, 255, 0)">
             <el-menu-item index="/mainpage/Recomend">
@@ -38,7 +38,7 @@
                 <img src="../assets/communicate.svg" style="width:1.5em" />
                 <span>交往难题</span>
               </template>
-              <el-menu-item-group title="解决校园霸凌">
+              <el-menu-item-group title="用正确的方式解决事情">
                 <el-menu-item index="/mainpage/AIChat">AI 咨询</el-menu-item>
                 <el-menu-item index="/mainpage/Example">真实事例</el-menu-item>
               </el-menu-item-group>
@@ -58,7 +58,7 @@
           </el-menu>
         </el-aside>
         <el-main style="overflow:hidden">
-          <el-scrollbar style="height: calc(100vh - 60px);">
+          <el-scrollbar style="height: calc(100vh - 80px);">
             <router-view>
 
             </router-view>
@@ -116,13 +116,14 @@ body {
 }
 
 #user_avatar {
-  padding-left: 10px;
+  padding-left: 5px;
 
 }
 
 #homepage_box {
   width: 100%;
   height: 100%;
+  background-image: linear-gradient(to left bottom, #f985c7, #fd87b5, #fd8ba5, #f99098, #f3968e, #f39e83, #efa87a, #e7b274, #dac46d, #c2d773, #9dea89, #5ffbb0);
 }
 
 
@@ -130,6 +131,8 @@ body {
   background-image: linear-gradient(90deg, #37a9f9 18%, #7340f9 80%);
   color: #333;
   line-height: 60px;
+  border-radius: 20px;
+  margin: 10px 10px;
 }
 
 .el-main {
@@ -159,7 +162,7 @@ body {
 
 #down_box {
   height: 100%;
-  background-image: linear-gradient(to left bottom, #f985c7, #fd87b5, #fd8ba5, #f99098, #f3968e, #f39e83, #efa87a, #e7b274, #dac46d, #c2d773, #9dea89, #5ffbb0);
+
 
 }
 

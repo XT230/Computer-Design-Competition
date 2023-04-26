@@ -121,6 +121,7 @@ export default
     background-color: rgba(255, 255, 255, 0.1);
     width: 500px;
     height: 500px;
+    border-radius: 20px;
 }
 
 .container {

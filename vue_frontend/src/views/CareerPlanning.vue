@@ -1,11 +1,12 @@
 <template>
   <div>
-    <el-menu class="el-menu-demo" mode="horizontal" background-color="rgba(255, 255, 255, 0)" router>
+    <el-menu class="el-menu-demo" mode="horizontal" background-color="rgba(255, 255, 255, 0)"
+      style="border-radius:20px 0 0 0" router>
       <el-menu-item index="/mainpage/CareerPlanning/CPArtical">推荐文章</el-menu-item>
       <el-menu-item index="/mainpage/CareerPlanning/CPUser">推荐答主</el-menu-item>
     </el-menu>
     <div
-      style="color: black; padding-bottom: 5px; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);"
+      style="color: black; padding-bottom: 5px; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);border-radius:0 0 0 20px;padding-left: 10px;"
       id="select">
       <el-input v-model="input" placeholder="Please input" class="input-with-select" style="width: 40%;">
         <template #prepend>

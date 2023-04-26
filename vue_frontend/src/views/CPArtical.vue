@@ -2,7 +2,7 @@
   <div id="big_box">
     <el-row style="width: 100%;">
       <el-col v-for="article in articles" :span="20">
-        <el-card shadow="hover" @click="jumpToAritical(article.aid)">
+        <el-card shadow="hover" @click="jumpToAritical(article.aid)" style="border-radius: 20px;">
           <el-row style="width:100%;">
             <el-col :span="2">
               <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" class="image"
