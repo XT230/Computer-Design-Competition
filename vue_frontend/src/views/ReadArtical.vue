@@ -1,7 +1,7 @@
 <template>
     <div id="big_box">
         <div id="title" style="width: 70%; text-align: center;">
-            <p style="font-size: 40px;">{{ article.title }}</p>
+            <p style="font-size: 40px; font-family: '楷体','楷体_GB2312';">{{ article.title }}</p>
             <div style="padding-top: 5px;width: 200px; margin: 10px auto; text-align: center;">
                 <el-row style="width:100%;">
                     <el-col :span="24">

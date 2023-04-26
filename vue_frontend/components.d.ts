@@ -52,5 +52,6 @@ declare module '@vue/runtime-core' {
     Register3: typeof import('./src/components/Register3.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Sidebar: typeof import('./src/components/Sidebar.vue')['default']
   }
 }
