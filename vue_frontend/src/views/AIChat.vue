@@ -32,19 +32,19 @@
 <script lang="ts">
 import axios from "axios";
 import { reactive, toRefs } from "vue";
-import { Conversation } from  '@/common'
+import type { Conversation } from '@/common';
 import { getSessionStorage } from "@/common";
 export default {
-    
+
     setup() {
         var ws = new WebSocket("ws://localhost:8088/api/websocket/" + getSessionStorage("user").uid)
         var postData = {
-                "model": "gpt-3.5-turbo",
-                "messages": [
-                    { "role": "system", "content": "你是一个心理咨询老师" },
-                    // {"role": "user", "content": "你好"}
-                ]
-            }
+            "model": "gpt-3.5-turbo",
+            "messages": [
+                { "role": "system", "content": "你是一个心理咨询老师" },
+                // {"role": "user", "content": "你好"}
+            ]
+        }
         const data = reactive({
             message: '',
             conversation: new Array<Conversation>(),
