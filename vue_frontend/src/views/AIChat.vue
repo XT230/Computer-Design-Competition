@@ -3,20 +3,42 @@
         <div class="dialogue">
             <el-scrollbar style="height: 80vh;">
                 <div v-for="(message, index) in conversation" class="conversation">
-                    <div style="width: 100%;min-height: 45px;">
+                    <!-- <el-row justify="end">
+                        <el-col :span="14">
+                            <div class="user">
+                                <p style="width:100%;padding-top: 5px; padding-bottom: 5px; font-size:19px ;">{{
+                                    message.user }}
+                                </p>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <el-row justify="start">
+                        <el-col :span="14">
+                            <div class="ai">
+                                <p style="width:100%;padding-top: 5px; padding-bottom: 5px; font-size:19px ;">{{ message.ai
+                                }}
+                                </p>
+                            </div>
+                        </el-col>
+                    </el-row> -->
+                    <div style="width: 100%;min-height: 45px; overflow: auto;">
+                        <img src="../tmp/头像.jpeg" class="image"
+                            style="height: 45px; border-radius: 50%; float:right; margin-left: 10px;">
                         <div class="user">
                             <p style="width:100%;padding-top: 5px; padding-bottom: 5px; font-size:19px ;">{{ message.user }}
                             </p>
                         </div>
+
                     </div>
                     <br>
-                    <div style="width: 100%;min-height: 45px;">
+                    <div style="width: 100%;min-height: 45px;overflow: auto;">
+                        <img src="../assets/ai.png" class="image"
+                            style="height: 45px; border-radius: 50%; float:left; margin-right: 10px;">
                         <div class="ai">
                             <p style="width:100%;padding-top: 5px; padding-bottom: 5px; font-size:19px ;">{{ message.ai }}
                             </p>
                         </div>
                     </div>
-
                 </div>
             </el-scrollbar>
         </div>
@@ -123,7 +145,6 @@ export default {
 }
 
 .user {
-    float: right;
     color: white;
     overflow: hidden;
     overflow: auto;
@@ -136,12 +157,11 @@ export default {
     justify-content: center;
     margin-bottom: 10px;
     background-image: linear-gradient(90deg, #2870EA 10.79%, #1B4AEF 87.08%);
-
+    float: right
 }
 
 
 .ai {
-    float: left;
     overflow: hidden;
     overflow: auto;
     display: flex;
@@ -154,6 +174,7 @@ export default {
     border-radius: 10px;
     color: black;
     background-color: white;
+    float: left;
 }
 
 .conversation .icon {
