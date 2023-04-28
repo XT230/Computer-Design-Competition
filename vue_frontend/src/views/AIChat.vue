@@ -37,7 +37,7 @@ import { getSessionStorage } from "@/common";
 export default {
 
     setup() {
-        var ws = new WebSocket("ws://localhost:8088/api/websocket/" + getSessionStorage("user").uid)
+        var ws = new WebSocket("ws://114.116.22.152:8088/api/websocket/" + getSessionStorage("user").uid)
         var postData = {
             "model": "gpt-3.5-turbo",
             "messages": [

@@ -47,26 +47,24 @@ public class WebSocketServer
     {
         ObjectMapper objectMapper = new ObjectMapper();
         RestTemplate restTemplate = new RestTemplate();
-        System.out.println(message + ":" + uid);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer opaikey");
         headers.add("Content-Type", "application/json");
         try
         {
             AIMessage aiMessage = objectMapper.readValue(message, AIMessage.class);
+            AIMessage.Message message1;
             HttpEntity<AIMessage> httpEntity = new HttpEntity<>(aiMessage, headers);
             AIResponse aiResponse = restTemplate.postForEntity("https://api.openai.com/v1/chat/completions", httpEntity, AIResponse.class).getBody();
             if(aiResponse == null)
             {
-                AIMessage.Message message1 = new AIMessage.Message("assistant", "抱歉，出错了");
+                message1 = new AIMessage.Message("assistant", "抱歉，出错了");
             }
             else
             {
-                AIMessage.Message message1 = aiResponse.getChoices().get(0).getMessage();
-
-                session.getBasicRemote().sendText(objectMapper.writeValueAsString(message1));
-                System.out.println(aiResponse);
+                message1 = aiResponse.getChoices().get(0).getMessage();
             }
+                session.getBasicRemote().sendText(objectMapper.writeValueAsString(message1));
         }
         catch(IOException e)
         {
