@@ -156,7 +156,7 @@ export default {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    background-image: linear-gradient(90deg, #2870EA 10.79%, #1B4AEF 87.08%);
+    background-image: linear-gradient(90deg, #286feae1 10.79%, #1b49efc2 87.08%);
     float: right
 }
 
