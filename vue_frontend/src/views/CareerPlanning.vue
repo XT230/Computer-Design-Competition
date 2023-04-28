@@ -8,7 +8,7 @@
     <div
       style="color: black; padding-bottom: 5px; background-image: linear-gradient(90deg, #ffffff7f 40%, #ffffff00 60%);border-radius:0 0 0 20px;padding-left: 20px; "
       id="select">
-      <el-input v-model="input" placeholder="Please input" class="input-with-select" style="width: 40%;">
+      <el-input v-model="input" placeholder="请输入搜索" class="input-with-select" style="width: 40%;">
         <template #prepend>
           <el-button :icon="Search" />
         </template>

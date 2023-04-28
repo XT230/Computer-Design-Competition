@@ -16,7 +16,6 @@
                             <img src="../assets/credit-level.svg" style="width:2em ;" />
                         <h1>积分:78</h1>
                         </p>
-
                     </div>
                 </div>
             </el-col>
