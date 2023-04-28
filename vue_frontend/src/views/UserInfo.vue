@@ -10,7 +10,7 @@
         </el-row>
         <el-row justify="space-evenly" style="width: 100%;">
             <el-col span="3" style="width: 30%;border-radius: 10px;">
-                <div style="background-color: rgb(245,245,245);border-radius: 10px;margin-bottom: 10px;text-align: center;">
+                <div id="boxt">
                     <div style="padding:30px 0;">
                         <p>
                             <img src="../assets/credit-level.svg" style="width:2em ;" />
@@ -21,7 +21,7 @@
                 </div>
             </el-col>
             <el-col span="3" style="width: 30%;">
-                <div style="background-color: rgb(245,245,245);border-radius: 10px;margin-bottom: 10px;text-align: center;">
+                <div id="boxt">
                     <div style="padding:30px 0;">
                         <p>
                             <img src="../assets/school.svg" style="width:2em ;" />
@@ -32,7 +32,7 @@
                 </div>
             </el-col>
             <el-col span="3" style="width: 30%;">
-                <div style="background-color: rgb(245,245,245);border-radius: 10px;margin-bottom: 10px;text-align: center;">
+                <div id="boxt">
                     <div style="padding:30px 0;">
                         <p>
                             <img src="../assets/message.svg" style="width:2em ;" />
@@ -121,6 +121,13 @@ export default defineComponent({
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#boxt {
+    background-image: linear-gradient(225deg, #37a8f969 18%, #3441d237 80%);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 #big_box2 {

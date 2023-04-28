@@ -1,7 +1,7 @@
 <template>
     <div id="recomend_user_box">
         <!-- <el-card v-for="item in user" :key="item" id="recommend_user">
-            <img :src="item.avatar" class="image" style="width: 100%;" />
+            <img :src="item.avatar" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>{{ item.username }}</span>
                 <div class="bottom">
@@ -11,7 +11,7 @@
         </el-card> -->
 
         <el-card id="recommend_user">
-            <img src="../tmp/2.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/2.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>邓宇哲</span>
                 <div class="bottom">
@@ -20,7 +20,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/3.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/3.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>韩思诚</span>
                 <div class="bottom">
@@ -29,7 +29,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/4.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/4.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>董泽宇</span>
                 <div class="bottom">
@@ -38,7 +38,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/5.png" class="image" style="width: 100%;" />
+            <img src="../tmp/5.png" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>朱志</span>
                 <div class="bottom">
@@ -47,7 +47,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/6.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/6.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>于洋</span>
                 <div class="bottom">
@@ -56,7 +56,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/7.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/7.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>席艳</span>
                 <div class="bottom">
@@ -65,7 +65,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/8.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/8.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>孙诺文</span>
                 <div class="bottom">
@@ -74,7 +74,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/9.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/9.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>徐涛</span>
                 <div class="bottom">
@@ -83,7 +83,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/10.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/10.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>吴红玉</span>
                 <div class="bottom">
@@ -92,7 +92,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/11.jpg" class="image" style="width: 100%;" />
+            <img src="../tmp/11.jpg" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>蒋旭东</span>
                 <div class="bottom">
@@ -101,7 +101,7 @@
             </div>
         </el-card>
         <el-card id="recommend_user">
-            <img src="../tmp/1.png" class="image" style="width: 100%;" />
+            <img src="../tmp/1.png" class="image" style="width: 100%;border-radius: 20px;" />
             <div>
                 <span>晚晚</span>
                 <div class="bottom">
@@ -169,7 +169,10 @@ export default defineComponent({
     height: 300px;
     float: left;
     margin-right: 20px;
+    border-radius: 20px;
 }
+
+
 
 #recomend_user_box {
     width: 90%;
