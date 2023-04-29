@@ -138,7 +138,7 @@ body {
 }
 
 .el-main {
-  background-color: #ffffff37;
+  background-color: #ffffff4d;
   color: #ffffff00;
   margin: 0px 10px 0px 0px;
   padding: 0px;
