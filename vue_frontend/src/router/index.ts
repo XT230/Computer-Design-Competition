@@ -18,6 +18,7 @@ import Register1 from '../components/Register1.vue'
 import Register2 from '../components/Register2.vue'
 import Register3 from '../components/Register3.vue'
 import Dialog from '../views/Dialog.vue'
+import AFHContain from "../views/AFHContain.vue"
 import path from 'path'
 const router = createRouter({
   history: createWebHistory(),
@@ -60,8 +61,9 @@ const router = createRouter({
         { path: 'Recomend', component: Recomend },
         { path: 'UserInfo', component: UserInfo },
         { path: 'Favorites', component: Favorites },
-        { path: 'ReadArtical', name: 'readArtical', component: ReadArtical },
-        { path: 'Dialog', name: 'dialog', component: Dialog },
+        { path: 'ReadArtical', component: ReadArtical },
+        { path: 'Dialog', component: Dialog },
+        { path: 'AFHContain', component: AFHContain }
       ]
     }
   ]

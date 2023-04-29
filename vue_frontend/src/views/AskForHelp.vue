@@ -2,7 +2,7 @@
   <div id="big_box">
     <el-row style="width: 100%;">
       <el-col v-for="(article, index) in articles" :span="20">
-        <el-card shadow="hover" @click="jumpToAritical(article.aid)" style="border-radius: 20px;">
+        <el-card shadow="hover" @click="jumpToAFHContain(article.aid)" style="border-radius: 20px;">
           <h3>{{ article.title }}</h3>
           <div v-html="article.content"></div>
         </el-card>
@@ -97,11 +97,6 @@ export default defineComponent({
         aid: 2,
       },
       {
-        title: '曾经和网友骚聊，现在很后悔，怎么办？',
-        content: '去年三月份有段时间不知道为什么去和网友聊骚，后来情绪控制住了以后很后悔，觉得自己做的事不道德。并且，害怕他把聊天记录发到网上。现在已经过去一年了。不知道该怎么办。',
-        aid: 2,
-      },
-      {
         title: '我不知道一个男生为什么要这么做，不达目的不罢休？',
         content: '一开始是互有好感。他故意用我的号带女生（号应该是他买的），我忍不住骂了他，他就好几天没回消息。但还是坚持不懈带女号，后来一系列操作（比如发自己去外地了的朋友圈）也是想引我去找他。最后我揭穿了他，他就把我拉黑了。后来他还是坚持不懈用类似的方式引我上钩，如果没有达成目的（可能是确认恋爱关系）就把我拉黑了。过了一段时间，他换个方式，用朋友微信加我。我揭穿是他，他就约我跟他朋友见面，目的可能是想让我相信这个人不是他。如果不成功他又会换一个人。我猜想他是不是在用欲擒故纵。目前为止有5个人，他用别人微信扮演5种性格试图让我相信不是他。（脾气时好时坏）但是第二个很奇怪，他跟我透露是他，来接我的却是他朋友，所以还没进电影院我就走了。他进了我在的群里，我估计是他很多朋友在这个群所以他知道。但是我加他，他就不理睬我。他还让很多人去看我游戏主页，我有种被监视的感觉。我既好奇又害怕，不明白他想干什么。',
         aid: 2,
@@ -139,13 +134,8 @@ export default defineComponent({
     const handleCreated = (editor: any) => {
       editorRef.value = editor // 记录 editor 实例，重要！
     }
-    const jumpToAritical = (aid: number) => {
-      router.push({
-        path: '/mainpage/ReadArtical',
-        query: {
-          aid: aid
-        }
-      })
+    const jumpToAFHContain = (aid: number) => {
+      router.push('/mainpage/AFHContain')
     }
     function publish() {
       console.log(editorRef.value.getHtml());
@@ -159,7 +149,7 @@ export default defineComponent({
       toolbarConfig,
       editorConfig,
       handleCreated,
-      jumpToAritical,
+      jumpToAFHContain,
       publish,
       // ...toRefs(data),
       articles,

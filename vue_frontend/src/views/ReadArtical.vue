@@ -14,7 +14,7 @@
             </div>
         </div>
         <hr style="width: 90%; margin-top: 10px; margin-bottom: 20px; border: 1px solid rgb(226 226 226); " />
-        <div v-html="article.content" style="padding: 10px;"></div>
+        <div v-html="article.content" style="padding: 10px 100px;"></div>
     </div>
     <div id="big_box2" style="text-align:center;">
         <div style="text-align: left; margin-left: 10px;">
@@ -103,7 +103,7 @@ export default defineComponent({
     margin-right: auto;
     background-color: white;
     color: black;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-top: 5px;
 }
 
@@ -114,7 +114,7 @@ export default defineComponent({
     background-color: white;
     color: black;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
