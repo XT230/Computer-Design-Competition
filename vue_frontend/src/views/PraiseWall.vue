@@ -3,10 +3,13 @@
     <el-row style="width: 100%;">
       <el-col v-for="(article, index) in articles" :span="20">
         <el-card class="tiezi" shadow="hover" @click="jumpToAritical(article.aid)" style="border-radius: 20px;">
-          <h3>我来夸他</h3>
           <div style="width: 185px;">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image" />
+            <p>
+              {{ article.content }}
+            </p>
+          </div>
+          <div style="height: 200px;">
+
           </div>
         </el-card>
       </el-col>
@@ -32,8 +35,9 @@
         style="width: 90%;" />
     </div>
     <div style="height: 50px;">
-      <el-button type="primary" style="float: right; width: 60px; margin-bottom: 20px"
-        @click="() => { dialogTableVisible = false }">提交</el-button>
+      <el-button type="primary" style="float: right; width: 60px; margin-bottom: 20px" @click="() => {
+          dialogTableVisible = false; articles.push({ content: textarea1, aid: articles.length + 1 });
+        }">提交</el-button>
     </div>
   </el-dialog>
 </template>
@@ -42,46 +46,50 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { reactive, toRefs } from "vue";
-
 import '@wangeditor/editor/dist/css/style.css'
 import { onBeforeUnmount, shallowRef, onMounted } from 'vue'
 import router from '../router/index.js'
 import type { Article } from '@/common'
 import { defineComponent } from 'vue'
+
 export default defineComponent({
   setup() {
     const dialogTableVisible = ref(false);
     const textarea1 = ref('');
-    const data = reactive({
-      articles: new Array<Article>
-    })
+    const articles: any = reactive([
+    ])
+    // const data = reactive({
+    //   articles: new Array<Article>
+    // })
     const jumpToAritical = (aid: number) => {
-      router.push({
-        path: '/mainpage/ReadArtical',
-        query: {
-          aid: aid
-        }
-      })
+      // router.push({
+      //   path: '/mainpage/ReadArtical',
+      //   query: {
+      //     aid: aid
+      //   }
+      // })
+      console.log(articles)
     }
     onMounted(() => {
       setTimeout(() => {
       }, 1500)
-      axios.get("article/getArticlesByType?type=2")
-        .then((response) => {
-          for (let article of response.data) {
-            data.articles.push(article)
-          }
-          console.log(data.articles)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      // axios.get("article/getArticlesByType?type=2")
+      //   .then((response) => {
+      //     for (let article of response.data) {
+      //       data.articles.push(article)
+      //     }
+      //     console.log(data.articles)
+      //   })
+      //   .catch((error) => {
+      //     console.log(error)
+      //   })
     })
     return {
       jumpToAritical,
-      ...toRefs(data),
+      // ...toRefs(data),
       dialogTableVisible,
-      textarea1
+      textarea1,
+      articles
     }
   }
 })
@@ -103,7 +111,7 @@ export default defineComponent({
 .tiezi {
   margin-top: 10px;
   margin-bottom: 10px;
-  height: 250px;
+  /* height: 250px; */
 }
 
 

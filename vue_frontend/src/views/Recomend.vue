@@ -2,8 +2,8 @@
 <template>
   <div style="padding-left: 20px;padding-right: 20px; padding-top: 20px;">
     <el-carousel :interval="4000" type="card" height="300px">
-      <el-carousel-item v-for="item in 6" :key="item">
-        <h3 text="2xl" justify="center">{{ item }}</h3>
+      <el-carousel-item v-for="item in img_src" :key="item" style="border-radius: 20px;">
+        <img :src="item" style="width: 100%; height: 100%; " />
       </el-carousel-item>
     </el-carousel>
     <!-- <el-row justify='space-between'>
@@ -105,12 +105,21 @@ export default defineComponent({
       },
 
     ];
+
+    const img_src = [
+      'https://th.bing.com/th/id/OIP.H-UUdfU7YQjaHKJamKrclgHaDm?pid=ImgDet&rs=1',
+      'http://www.77juzi.com/uploads/allimg/190110/1-1Z110151229.jpg',
+      'https://up.tt98.com/20/edpic/2d/e4/13/2de413bfaa3f8487eb5110be39de6492.jpg',
+      'https://up.tt98.com/20/edpic/95/e9/9b/95e99b45416c0672642aba5b060a0ff9.jpg'
+
+    ]
     const jumpToAriticle = () => {
       router.push('/mainpage/ReadArtical')
     }
     return {
       jumpToAriticle,
-      ariticle
+      ariticle,
+      img_src
     }
   }
 })
