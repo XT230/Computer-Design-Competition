@@ -1,5 +1,5 @@
 <template>
-    <div style="background-color: #ffffe270;">
+    <div style="background-color: #ffffe270;border-radius: 20px;padding-top: 10px;">
         <el-steps :active="0" finish-status="success" align-center>
             <el-step title="基本信息" />
             <el-step title="选择标签" />
@@ -7,7 +7,7 @@
         </el-steps>
     </div>
     <div style="width: 40vw;margin: 10px auto;">
-        <el-card>
+        <el-card style="border-radius: 20px;">
             <el-form ref=" ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm"
                 size=default status-icon>
                 <el-form-item label="用户名" prop="name">
@@ -30,7 +30,7 @@
                 <el-form-item label="确认密码" prop="checkPass">
                     <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" />
                 </el-form-item>
-                <el-button type="primary" @click="submitForm(ruleFormRef)">
+                <el-button type="success" @click="submitForm(ruleFormRef)" style="width: 80px;">
                     注册
                 </el-button>
             </el-form>
@@ -45,7 +45,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { defineComponent } from 'vue'
 import { RouterView } from 'vue-router'
 import axios from 'axios'
-import type {School} from '@/common'
+import type { School } from '@/common'
 import { setLocalStorage } from '@/common'
 
 export default defineComponent({
@@ -133,8 +133,7 @@ export default defineComponent({
         axios.get("school/getAllSchools")
             .then((response) => {
                 let data = response.data;
-                for(let school of data)
-                {
+                for (let school of data) {
                     ruleForm.schools.push({
                         value: school.sid,
                         label: school.sname

@@ -42,8 +42,12 @@ import { ref } from 'vue'
 import { defineComponent } from 'vue'
 import router from '../router/index.js'
 
+
 export default defineComponent({
   setup() {
+    function getImageUrl(name: string) {
+      return new URL(`../tmp/${name}.jpg`, import.meta.url).href
+    }
     const ariticle = [
       {
         title: '「已读不回」和「无人点赞」真的让我很焦虑',
@@ -107,11 +111,10 @@ export default defineComponent({
     ];
 
     const img_src = [
-      'https://th.bing.com/th/id/OIP.H-UUdfU7YQjaHKJamKrclgHaDm?pid=ImgDet&rs=1',
-      'http://www.77juzi.com/uploads/allimg/190110/1-1Z110151229.jpg',
-      'https://up.tt98.com/20/edpic/2d/e4/13/2de413bfaa3f8487eb5110be39de6492.jpg',
-      'https://up.tt98.com/20/edpic/95/e9/9b/95e99b45416c0672642aba5b060a0ff9.jpg'
-
+      getImageUrl('abc'),
+      getImageUrl('def'),
+      getImageUrl('ghi'),
+      getImageUrl('jkl'),
     ]
     const jumpToAriticle = () => {
       router.push('/mainpage/ReadArtical')
