@@ -2,16 +2,16 @@
   <div id="big_box">
     <el-row style="width: 100%;">
       <el-col v-for="article in articles" :span="20">
-        <el-card shadow="hover" @click="jumpToAritical(article.aid)" style="border-radius: 20px;">
+        <el-card shadow="hover" @click="jumpToAritical(article.aid)" style="border-radius: 20px; margin-bottom: 10px;">
           <el-row style="width:100%;">
             <el-col :span="2">
-              <img src="../tmp/头像.jpeg" class="image" style="height: 30px; border-radius: 50%;" />
+              <img src="../tmp/头像.jpeg" class="image" style="height: 40px; border-radius: 50%;" />
             </el-col>
             <el-col :span="20">
-              <h3>{{ article.title }}</h3>
+              <h3 style="font-size: 25px;">{{ article.title }}</h3>
             </el-col>
           </el-row>
-          <div v-html="article.content"></div>
+          <div style="padding: 0px 30px;" v-html="article.content"></div>
           <el-rate v-model="value" />
         </el-card>
       </el-col>
