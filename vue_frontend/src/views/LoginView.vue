@@ -27,7 +27,7 @@
                 </div>
             </div>
             <a href="#" class="btns">忘记密码</a>
-            <a href="#" class="btns signup">注册</a>
+            <a href="#" @click="toRegister" class="btns signup">注册</a>
         </div>
     </div>
 </template>
@@ -90,11 +90,17 @@ export default
                         console.log(error);
                     })
             }
+            function toRegister()
+            {
+                router.push("/register")
+            }
             return {
                 ...toRefs(state),
                 login,
+                toRegister
             }
         }
+
     }
 </script>
 

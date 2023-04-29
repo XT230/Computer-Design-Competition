@@ -56,7 +56,6 @@ export default defineComponent({
           for (let article of response.data) {
             data.articles.push(article)
           }
-          console.log(data.articles)
         })
         .catch((error) => {
           console.log(error)

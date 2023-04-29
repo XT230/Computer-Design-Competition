@@ -1,9 +1,9 @@
 <template>
   <div id="big_box">
     <el-row style="width: 100%;">
-      <el-col v-for="article in articles" :span="20">
-        <el-card shadow="hover" @click="jumpToAritical(article.aid)" style="border-radius: 20px;">
-          <el-row style="width:100%;">
+      <el-col v-for="article in articles" :span="20" >
+        <el-card shadow="hover" style="border-radius: 20px; margin-bottom: 20px;">
+          <el-row style="width:100%;" @click="jumpToAritical(article.aid)">
             <el-col :span="2">
               <img src="../tmp/头像.jpeg" class="image" style="height: 30px; border-radius: 50%;" />
             </el-col>
@@ -11,7 +11,7 @@
               <h3>{{ article.title }}</h3>
             </el-col>
           </el-row>
-          <div v-html="article.content"></div>
+          <div @click="jumpToAritical(article.aid)" v-html="article.content" style="height: 80px; overflow: hidden;"></div>
           <el-rate v-model="value" />
         </el-card>
       </el-col>
@@ -31,7 +31,7 @@
     </div>
   </el-affix>
   <el-drawer v-model="drawer" title="帖子发表" :direction="direction" size="70%">
-    <input style="width: 100%;height: 40px; margin-bottom: 10px; border-radius: 3px;" value=请键入标题>
+    <input style="width: 100%;height: 40px; margin-bottom: 10px; border-radius: 3px;" placeholder="请输入标题" v-model="title">
     <div style="border: 1px solid #ccc;height: 70%;">
       <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
       <Editor style="height: 80%; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
@@ -45,7 +45,7 @@
         </el-checkbox-button>
       </div>
     </div>
-    <el-button type="primary" style="float: right; margin-top: 10px;">发布</el-button>
+    <el-button @click="saveArticle" type="primary" style="float: right; margin-top: 10px;">发布</el-button>
   </el-drawer>
 </template>
   
@@ -57,13 +57,12 @@ import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import { defineComponent, onBeforeMount } from 'vue'
 import router from '@/router/index.js'
 import { reactive, toRefs } from "vue";
-import type { Article } from '@/common'
+import { Article, getLocalStorage, getSessionStorage } from '@/common'
 import { httpURL } from '@/common'
 axios.defaults.baseURL = httpURL
 export default defineComponent({
   components: { Editor, Toolbar },
   setup() {
-    const title = "这是标题"
     const main_part = "这是正文"
     const author = "这是作者"
     const drawer = ref(false)
@@ -75,7 +74,8 @@ export default defineComponent({
     const toolbarConfig = {}
     const editorConfig = { placeholder: '请输入内容...' }
     const data = reactive({
-      articles: new Array<Article>
+      articles: new Array<Article>,
+        title: ''
     })
     onMounted(() => {
       axios.get("article/getArticlesByType?type=1")
@@ -100,8 +100,22 @@ export default defineComponent({
         }
       })
     }
+    function saveArticle()
+    {
+        let article = new Article()
+        article.content = editorRef.value.getHtml()
+        article.title = data.title
+        article.type = 1
+        article.uid = getSessionStorage("user").uid
+        axios.post("article/addArticle", article)
+            .then((response) => {
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
     return {
-      title,
       main_part,
       author,
       drawer,
@@ -115,7 +129,8 @@ export default defineComponent({
       jumpToAritical,
       handleCreated,
       tags,
-      value
+      value,
+      saveArticle
     }
   }
 })
