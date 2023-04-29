@@ -1,9 +1,10 @@
 <template>
     <div class="wrapper">
         <div>
-            <el-card id="intro">
-                <div v-for="o in 4" :key="o" class="text item">对品台的一些介绍</div>
-            </el-card>
+            <!-- <el-card id="intro"> -->
+            <!-- <div v-for="o in 4" :key="o" class="text item">对品台的一些介绍</div> -->
+            <img :src="getImageUrl('login')" id="intro">
+            <!-- </el-card> -->
         </div>
         <div class="container">
             <div class="drop">
@@ -43,6 +44,9 @@ axios.defaults.baseURL = httpURL;
 export default
     {
         setup() {
+            function getImageUrl(name: string) {
+                return new URL(`../tmp/${name}.png`, import.meta.url).href
+            }
             const router = useRouter();
             const state = reactive({
                 user: {
@@ -90,14 +94,14 @@ export default
                         console.log(error);
                     })
             }
-            function toRegister()
-            {
+            function toRegister() {
                 router.push("/register")
             }
             return {
                 ...toRefs(state),
                 login,
-                toRegister
+                toRegister,
+                getImageUrl,
             }
         }
 
@@ -123,11 +127,11 @@ export default
 
 .wrapper #intro {
     position: relative;
-    left: -200px;
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 500px;
+    left: -100px;
+    background-color: rgba(255, 255, 255, 0.493);
+    width: 800px;
     height: 500px;
-    border-radius: 20px;
+    border-radius: 90px;
 }
 
 .container {
