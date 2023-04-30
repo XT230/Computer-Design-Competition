@@ -29,9 +29,9 @@
       </svg>
     </div>
   </el-affix>
-  <el-dialog v-model="dialogTableVisible" title="发表帖子" width="30vw">
+  <el-dialog v-model="dialogTableVisible" title="说出坏情绪" width="30vw">
     <div style="display:flex; justify-content:center; align-items:center;margin-bottom: 10px;">
-      <el-input v-model="textarea1" :autosize="{ minRows: 5, maxRows: 20 }" type="textarea" placeholder="发表帖子"
+      <el-input v-model="textarea1" :autosize="{ minRows: 5, maxRows: 20 }" type="textarea" placeholder="写下你想说的吧"
         style="width: 90%;" />
     </div>
     <div style="height: 50px;">
